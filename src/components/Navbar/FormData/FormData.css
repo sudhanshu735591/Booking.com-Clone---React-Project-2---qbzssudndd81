@@ -1,0 +1,15 @@
+.edjneidue98{
+    display: flex;
+    background: orange;
+}
+
+input{
+    border-right: 4px solid orange;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+}
+
+::-webkit-input-placeholder { 
+    padding: 10px;
+}

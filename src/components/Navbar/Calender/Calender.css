@@ -1,0 +1,8 @@
+.calender{
+    height: 320px;
+    width: 48%;
+    background-color: red;
+    position: absolute;
+    top: 107%;
+    left: 36%;
+}
