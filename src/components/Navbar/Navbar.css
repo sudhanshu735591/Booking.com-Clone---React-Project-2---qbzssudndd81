@@ -4,6 +4,7 @@
     background-color: #003b95;
     padding: 12px;
     position: relative;
+    height: 378px;
 }
 
 
@@ -51,15 +52,90 @@ svg{
   margin: auto;
   border:  5px solid orange;
   position: relative;
-  top: 43px;
 }
 
 
 .calender{
-    height: 320px;
     width: 48%;
-    background-color: red;
+    background-color: white;
     position: absolute;
     top: 107%;
     left: 36%;
+    /* border: 2px solid; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.eijeif98{
+    width: 283px;
+    padding: 20px   ;
+}
+
+.react-calendar__month-view__days{
+    height: 268px;
+}
+
+
+.ediuj3ie38{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-bottom: 2px solid #3d5ccd;
+    padding: 10px;
+    color: blue;
+}
+
+
+.react-calendar__navigation__label__labelText{
+    color: black;
+    font-weight: 700;
+    border: none;
+    margin-left: 20px;
+}
+
+
+.dkjn3ij3 {
+    display: flex;
+    align-items: center;
+}
+
+/* .react-calendar__month-view__weekdays{
+    width: 385px;
+}
+
+.react-calendar__month-view__days{
+    width: 363px;
+} */
+
+/* div{
+    display: flex;
+    align-items: flex-end;
+    width: 53%;
+} */
+
+.cdkmeod03{
+    display: flex;
+    gap: 70px;
+}
+
+
+.edij30e{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    border-bottom: 2px solid blue;
+
+}
+
+
+.edij30e:hover{
+    background-color: rgb(255, 227, 229);
+}
+
+.ediuj3ie38:hover{
+    background-color: rgb(255, 227, 229);
 }

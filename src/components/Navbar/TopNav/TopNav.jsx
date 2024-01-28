@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router";
 import Button from "../../Button/Button";
 import "./TopNav.css"
 
 function TopNav(){
+
+    const navigate = useNavigate();
+
+    function handleSignInButton(){
+        navigate("/sign_in_page");
+    }
+
     return(
         <div>
              <div className="dnjed939">
@@ -9,7 +17,7 @@ function TopNav(){
 
                 <div className="dicjrif98r8">
                     <Button className="RegisterButton button" text = "Register"/>
-                    <Button className="SignInButton button" text = "Sign in"/>
+                    <Button onClick = {handleSignInButton} className="SignInButton button" text = "Sign in"/>
                 </div>
             </div>
         </div>
