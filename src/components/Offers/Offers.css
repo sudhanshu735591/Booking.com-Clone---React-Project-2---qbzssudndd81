@@ -1,6 +1,9 @@
 .offerSection{
     margin: 76px 241px;
-    width: 80%;
+    width: 72%;
+    overflow: scroll;
+    overflow-y: hidden;
+    height: 276px;
 }
 
 .edjn82992820{
@@ -11,6 +14,8 @@
 .dj3ei398{
     display: flex;
     gap: 22px;
+    position: relative;
+    width: 1669px;
 }
 
 .djniu298{
@@ -45,7 +50,9 @@ h1{
 }
 
 p{
-    margin-top: 5px;
+    margin-top: 0px;
+    font-weight: 700;
+    font-size: 15px;
 }
 
 .eddmed03{
@@ -56,3 +63,36 @@ p{
     border-radius: 6px;
     font-size: 14px;
 }
+
+.ednej99{
+    position: absolute;
+    left: 220px;
+    top: 617px;
+}
+
+svg {
+    display: flex;
+    color: white;
+    border-radius: 50%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 2px solid;
+    padding: 5px;
+    height: 32px;
+    cursor: pointer;
+}
+
+svg:hover{
+    background: rgb(155, 246, 215);
+}
+
+.rightArrow{
+    position: absolute;
+    left: 1335px;
+    border: none;
+    top: 610px;
+}
+
+
+::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
