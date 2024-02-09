@@ -5,7 +5,7 @@ function Flight(){
         <div className="edjen98383">
         <ul className="euheud98899">
             <li className="idj39">
-                <span>Flights</span>
+                <span className="staysSpan">Flights</span>
             </li>
         </ul>
     </div>

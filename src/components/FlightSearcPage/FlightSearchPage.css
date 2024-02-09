@@ -1,0 +1,27 @@
+.changeClass{
+    color: blue;
+    border-bottom: 2px solid blue;
+    font-size:15px;
+    cursor: pointer;
+    padding: 5px 10px; 
+    display: inline-flex;
+    position:relative;
+}
+.prevClass{
+    color: black;
+    display: inline-flex;
+    position: relative;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+    
+}
+
+.svgflight{
+    color: blue;
+}
+
+.flightSearchBox{
+    background-color: #003b95;
+    padding: 10px;
+}

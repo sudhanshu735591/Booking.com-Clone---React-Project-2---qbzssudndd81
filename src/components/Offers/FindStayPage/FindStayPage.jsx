@@ -102,8 +102,27 @@ function FindStayPage(){
                 </div>
             </div>
         </div>
-        </>
 
+
+        <div className="jnjiu2ji">
+            <div className="ecini329w0">Our picks for a long-term stay</div>
+            <div className="dni20w92">These hotels and vacation rentals are popular for extended stays</div>
+
+            <div className="dii920">
+                <div className="ddn201">
+                    <div className="cnwiw029i"></div>
+                    <div className="cnowij092i"></div>
+                </div>
+
+                <div className="n3e0ie0">
+                    <div className="no3jd30"></div>
+                    <div className="nd3i092w"></div>
+                    <div className="dn20w0"></div>
+                    <div className="dn209wi1"></div>
+                </div>
+            </div>
+        </div>
+        </>
     )
 }
 

@@ -1,10 +1,8 @@
 .offerSection{
-    margin: 76px 241px;
-    width: 72%;
-    overflow: scroll;
-    overflow-y: hidden;
-    height: 276px;
+    width: 68%;
+    margin: 52px auto;
 }
+
 
 .edjn82992820{
     font-size: 22px;
@@ -13,9 +11,7 @@
 
 .dj3ei398{
     display: flex;
-    gap: 22px;
-    position: relative;
-    width: 1669px;
+    gap: 10px;
 }
 
 .djniu298{
@@ -35,7 +31,6 @@
 
 .wsi2u9e93 {
     border: 1px solid #d4d4d4;
-    width: 46%;
     gap: 10px;
     margin-top: 20px;
     padding: 18px;
@@ -70,20 +65,7 @@ p{
     top: 617px;
 }
 
-svg {
-    display: flex;
-    color: white;
-    border-radius: 50%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    border: 2px solid;
-    padding: 5px;
-    height: 32px;
-    cursor: pointer;
-}
 
-svg:hover{
-    background: rgb(155, 246, 215);
-}
 
 .rightArrow{
     position: absolute;

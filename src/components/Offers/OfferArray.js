@@ -1,10 +1,10 @@
 const data = [
-    {
-        h1:"Take your longest vacation yet",
-        p:"Browse properties offering long-term stays, many at reduced monthly rates.",
-        buttonText:"Find a stay",
-        img :"https://r-xx.bstatic.com/xdata/images/xphoto/500x500/220031205.jpeg?k=bf9841e8ba89dfdf92e02d45e45dc89fcca2d981b7c74ad57d3ecf6ba64ba1c2&o="
-    },
+    // {
+    //     h1:"Take your longest vacation yet",
+    //     p:"Browse properties offering long-term stays, many at reduced monthly rates.",
+    //     buttonText:"Find a stay",
+    //     img :"https://r-xx.bstatic.com/xdata/images/xphoto/500x500/220031205.jpeg?k=bf9841e8ba89dfdf92e02d45e45dc89fcca2d981b7c74ad57d3ecf6ba64ba1c2&o="
+    // },
 
     {
         h1:"Fly away to your dream vacation",

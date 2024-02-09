@@ -5,7 +5,7 @@ function Stays(){
         <div className="edjen98383">
             <ul className="euheud98899">
                 <li className="idj39">
-                    <span>Stays</span>
+                    <span className="staysSpan">Stays</span>
                 </li>
                 
             </ul>

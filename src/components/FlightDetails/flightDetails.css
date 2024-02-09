@@ -1,0 +1,8 @@
+.flightDetailsButton{
+    background: white;
+    color: blue;
+    border: 2px solid blue;
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 23px;
+}
