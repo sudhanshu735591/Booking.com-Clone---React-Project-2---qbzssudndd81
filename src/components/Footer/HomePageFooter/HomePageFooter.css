@@ -91,6 +91,8 @@
 {
     color: #006ce4;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 .extranet:hover{
     color: rgb(189, 140, 42);
@@ -100,10 +102,13 @@
     text-align: left;
     padding: 20px 180px;
     font-size: 10px;
+    font-weight: normal;
 }
 .descPara{
     text-align: center;
     padding: 0px 2%;
+    font-weight: normal;
+
     font-size: 11px;
 }
 .footerImgContainer{

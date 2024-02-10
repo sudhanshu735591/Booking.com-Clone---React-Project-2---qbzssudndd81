@@ -57,7 +57,7 @@ function Offers() {
 
                                         <div className="wsmwo3">
                                             <div className="img">
-                                                <img src={val.img} />
+                                                <img src={val.img}  className="oejij4uj"/>
                                             </div>
                                         </div>
                                     </div>

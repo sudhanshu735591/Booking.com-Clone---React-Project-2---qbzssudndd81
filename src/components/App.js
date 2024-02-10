@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import SignIn from "./Sign_in/Sign_In";
 import FindStayPage from "./Offers/FindStayPage/FindStayPage";
 import Flightsearch from "./FlightSearcPage/FlightSearchPage";
+import HotelCards from "./HotelCards/HotelCards";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path = "/sign_in_page" element={<SignIn/>}/>
         <Route path = "findStayPage" element = {<FindStayPage/>}/>
         <Route path = "FlightSearchPage" element={<Flightsearch/>}/>
+        <Route path = "Hotels"  element={<HotelCards/>}/>
       </Routes>
   );
 }
