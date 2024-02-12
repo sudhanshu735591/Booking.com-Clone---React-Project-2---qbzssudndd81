@@ -1,4 +1,5 @@
 
+import BedAvailability from "../BedAvailability/BedAvailability";
 import Flight from "../Navbar/BottomNav/Stays/Stays/Flight/Flight";
 import Stays from "../Navbar/BottomNav/Stays/Stays/Stays";
 import TopNav from "../Navbar/TopNav/TopNav";
@@ -27,7 +28,9 @@ function SingleInfo() {
                 </div>
             </div>
 
-           
+           <div>
+            <BedAvailability/>
+           </div>
 
         </div>
     )

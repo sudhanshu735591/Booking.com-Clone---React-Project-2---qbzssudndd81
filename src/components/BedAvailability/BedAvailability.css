@@ -1,0 +1,32 @@
+.jnjrnf{
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+
+table, th, td {
+    border:1px solid blue;
+}
+
+.rfffr{
+    background-color: rgb(139, 64, 209);
+    color: white;
+}
+
+.dji3jo{
+    font-size: 15px;
+    text-align: left;
+
+}
+
+.ejdnedi{
+    background-color: blueviolet;
+    color: white;
+    padding: 4px 20px;
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
