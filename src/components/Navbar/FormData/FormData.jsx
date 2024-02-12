@@ -10,9 +10,9 @@ function FormData(props){
         <>
             <form method="submit">
                 <div className="edjneidue98">
-                    <input type="text" placeholder="Where are you going?"/>
-                    <input onClick={()=>setFlag(!flag)} type="text" placeholder="Date"/>
-                    <input type="text" placeholder="adult"/>
+                    <input className="edjned" type="text" placeholder="Where are you going?"/>
+                    <input className="edjned" onClick={()=>setFlag(!flag)} type="text" placeholder="Date"/>
+                    <input className="edjned" type="text" placeholder="adult"/>
                     <Button text ="Search" className="FormDataButton"/>
                 </div>
             </form>

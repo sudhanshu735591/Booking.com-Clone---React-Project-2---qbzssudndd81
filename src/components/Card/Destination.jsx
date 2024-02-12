@@ -2,7 +2,9 @@ import { NavLink } from "react-router-dom";
 import "./Destination.css";
 
 function Destinations(props) {
-    const {heading, para, DestDetails, edi393idj} = props
+    const {heading, para, DestDetails, edi393idj} = props;
+
+    
     return (
         <div className="edui3ie">
             <div className="enoo3eji3e90">{heading}</div>

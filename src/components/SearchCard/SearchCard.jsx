@@ -1,0 +1,57 @@
+import Button from "../Button/Button";
+import "./SearchCard.css";
+
+function SearchCard(){
+    return(
+        <div className="ejdnjdn p-3 ">
+            <div className="text-xl font-medium">Search</div>
+
+            <div className="mt-2">
+                <div>Destination/property name:</div>
+                <div className="flex bg-white gap-2 items-center p-2">
+                    <span class="fcd9eec8fb d24fc26e73 f64eb5d122" aria-hidden="true"><svg viewBox="0 0 128 128" width="1em" height="1em"><path d="M118.8 113.2l-31-31A4 4 0 0 0 85 81a44 44 0 1 0-4 4 4 4 0 0 0 1.2 2.8l31 31a4 4 0 0 0 5.6-5.7zM52 88a36 36 0 1 1 36-36 36 36 0 0 1-36 36z"></path></svg></span>
+                    <input name="ss" class="eb46370fe1" placeholder="Where are you going?" data-destination="1" autocomplete="off" aria-autocomplete="list" aria-controls="autocomplete-results" aria-haspopup="listbox" aria-label="Where are you going?" aria-expanded="true" role="combobox" id=":rt:" value="Mumbai"></input>
+                </div>
+            </div>
+
+
+            <div className="mt-1">
+                <div>Check-in date</div>
+                <div className="">
+                    <input type="date" placeholder="edjejid"/>
+                    
+                </div>
+            </div>
+
+            <div className="mt-1">
+                <div>Check-out date</div>
+                <div className="flex flex-col">
+                    <input type="date" placeholder="edjejid"/>
+                    <input className="mt-2 w-55 edkjne p-2" type="text" placeholder="ideji" value="2-adult . 0 children. 1 room"/>
+                    
+                </div>
+            </div>
+
+
+            <div className="mt-2">
+                <span className="flex gap-2">
+                    <input type="checkbox" />
+                    <p className="font-normal">Entire homes & apartments</p>
+                </span>
+                
+                <span className="flex gap-2">
+                    <input type="checkbox" />
+                    <p className="font-normal">I'm traveling for work</p>
+                </span>
+            </div>
+
+
+            <div className="eiend mt-2">
+                <Button className="dcjnjrn"  text = "Search"/>
+            </div>
+
+        </div>
+    )
+}
+
+export default SearchCard;

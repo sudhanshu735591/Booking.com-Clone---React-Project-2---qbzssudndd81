@@ -13,7 +13,7 @@ function Home(){
         <div>
             <Navbar/>
             <Offers/>
-            <Destinations heading = "Browse by property type" para ="" DestDetails={properties} edi393idj="edi393idj"/>
+            {/* <Destinations heading = "Browse by property type" para ="" DestDetails={properties} edi393idj="edi393idj"/> */}
 
             <TrendingDestination/>
             <Destinations heading = "Explore India" para ="These popular destinations have a lot to offer" DestDetails={DestDetails} edi393idj="edi393idj"/>
