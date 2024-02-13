@@ -36,6 +36,8 @@ function Destinations(props) {
                     })
                 }
             </div>
+
+            
         </div>
     )
 }

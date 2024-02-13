@@ -2,6 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./HotelCards.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";
 
 function HotelCards() {
     let [searchParams] = useSearchParams();
@@ -44,7 +45,7 @@ function HotelCards() {
         <div>
             <Navbar />  
 
-            <div className="w-8/12 mt-20 m-auto border-2 flex gap-2 md:w-[100%] md:text-[7px]">
+            <div className="w-8/12 mt-20 m-auto flex gap-2 md:w-[100%] md:text-[7px]">
 
                 {/* filter Section */}
                 <div>
@@ -166,10 +167,19 @@ function HotelCards() {
                                 <img onClick={onClickImageHandler} className="edjkednjk3n" src={val.images[0]}/>
                             </div>
     
-                            <div className="ed3dk3kdk3">
-                                <p className="font-normal">Resort</p>
-                                <h3 className="font-bold">Zulu Land cottages - near Curlies beach shack and shiva valley - Anjuna beach</h3>
-                                <p className="font-normal">Located in Anjuna, a few steps from Anjuna Beach, Zulu Land cottages - near Curlies beach shack and shiva valley - Anjuna beach provides accommodations with a fitness center, free private parking, a...</p>
+                            <div className="ed3dk3kdk3 w-full flex flex-col gap-3">
+                               <div className="flex">
+                               <p className="fedjnejd">{val.name}</p>
+                                    {
+                                        // console.log("rating",val.rating);
+                                        <img className="edjne" src="https://t4.ftcdn.net/jpg/05/70/03/51/240_F_570035178_kjB04e6Myv95x9YukX6ie8ynaaaY7i0L.jpg"/>
+                                    }
+                               </div>
+                                <h3 className="font-bold">{val.location}h</h3>
+                                <div className="flex edjhjhe justify-between">
+                                    <p className="font-normal">{val.rooms[0].bedDetail}</p>
+                                    <p>₹ {val.rooms[0].costPerNight}</p>
+                                </div>
                             </div>
                         </div>
                           </div>
@@ -178,8 +188,75 @@ function HotelCards() {
                   }
                 </div>
             </div>
+
+            <HomePageFooter/>
         </div>
     )
 }
 
 export default HotelCards;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
