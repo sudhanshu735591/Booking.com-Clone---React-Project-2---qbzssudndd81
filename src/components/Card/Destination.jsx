@@ -14,9 +14,9 @@ function Destinations(props) {
                     DestDetails.map((val) => {
                         return (
                             <div className="rounded-lg">
-                                <NavLink to = {(`/Hotels?search=${JSON.stringify(val.name)}`)}>
+                                <NavLink to = {(`/Hotels?search=${JSON.stringify(val.city)}`)}>
                                     <img 
-                                        className="rounded-xl"
+                                        className="rounded-xl h-40 w-50"
                                         src={val.img}
                                         alt="image"
                                     />

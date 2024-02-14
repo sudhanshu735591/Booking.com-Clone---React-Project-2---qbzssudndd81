@@ -3,6 +3,8 @@ import Navbar from "../Navbar/Navbar";
 import "./HotelCards.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";
+import Button from "../Button/Button";
+import DropDown from "../DropDown/DropDown";
 
 function HotelCards() {
     let [searchParams] = useSearchParams();
@@ -12,6 +14,7 @@ function HotelCards() {
     const [allData, setAllData] = useState([]);
 
     const navigate = useNavigate();
+
 
     const apiData = async () => {
        try{
@@ -104,7 +107,7 @@ function HotelCards() {
 
 
 
-                    <div className=" w-full border-2 p-2">
+                    <div className=" w-full border-2 p-2 edebh">
                         <h3 className="font-bold">Popular Filters</h3>
 
                         <div className="flex mt-2 items-center gap-2">
@@ -157,29 +160,88 @@ function HotelCards() {
                 {/* Properties Section */}
 
                 <div className="eknedo">
+                   <DropDown/>
                   {
-                    allData.length>0 && allData.map((val)=>{
+                    allData && allData.length>0 && allData.map((val)=>{
+                        let randomNumber = Math.floor(Math.random()*3+1);
+                        let difference = 3-randomNumber;
+                        let limitedImages = val.rating;
+                        let randomRating = parseFloat(((limitedImages * 10) / 6.0)).toFixed(1);
+
+
                         return(
                           <div className="edidjioj">
                               <div className="edjeoidi">
                             <div className="edoiejdio">
-
                                 <img onClick={onClickImageHandler} className="edjkednjk3n" src={val.images[0]}/>
+                                <div className="edeidui3">
+                                <span class="eedba9e88a"><span class="fcd9eec8fb bf9a32efa5" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height={"17px"}><path d="M12.541 21.325l-9.588-10a4.923 4.923 0 1 1 6.95-6.976l1.567 1.566a.75.75 0 0 0 1.06 0l1.566-1.566a4.923 4.923 0 0 1 6.963 6.962l-9.6 10.014h1.082zm-1.082 1.038a.75.75 0 0 0 1.082 0l9.59-10.003a6.418 6.418 0 0 0-.012-9.07 6.423 6.423 0 0 0-9.083-.001L11.47 4.854h1.06l-1.566-1.566a6.423 6.423 0 1 0-9.082 9.086l9.577 9.99z"></path></svg></span></span>
+                                </div>
                             </div>
     
-                            <div className="ed3dk3kdk3 w-full flex flex-col gap-3">
-                               <div className="flex">
-                               <p className="fedjnejd">{val.name}</p>
-                                    {
-                                        // console.log("rating",val.rating);
-                                        <img className="edjne" src="https://t4.ftcdn.net/jpg/05/70/03/51/240_F_570035178_kjB04e6Myv95x9YukX6ie8ynaaaY7i0L.jpg"/>
-                                    }
-                               </div>
-                                <h3 className="font-bold">{val.location}h</h3>
-                                <div className="flex edjhjhe justify-between">
-                                    <p className="font-normal">{val.rooms[0].bedDetail}</p>
-                                    <p>₹ {val.rooms[0].costPerNight}</p>
+                            <div className="ed3dk3kdk3 w-full flex flex-col ">
+                                <div className="flex justify-between">
+                                  <div className="flex">
+                                    <p className="fedjnejd">{val.name}</p>
+                                        {
+                                            Array.from({length:limitedImages}, (_, index)=>{
+                                                return(
+                                                    <img key={index} className="edjne" src="https://t4.ftcdn.net/jpg/05/70/03/51/240_F_570035178_kjB04e6Myv95x9YukX6ie8ynaaaY7i0L.jpg"/>
+                                                )
+                                            })
+                                        }
+                                  </div>
+
+                                 <div className="flex gap-2">
+                                    <div>
+                                    <div className="ediedie">
+                                        {randomRating<=6 && <p>Average</p> || randomRating>6 && randomRating<=7 && <p>Good</p> || randomRating>7 && randomRating<=8 && <p>Very Good</p> || randomRating>8 && randomRating<=10 && <p>Excellent</p>}
+                                    </div>
+                                    </div>
+                                    <div className="eduedui">
+                                        <p>{randomRating}</p>
+                                    </div>
+                                    </div>
                                 </div>
+
+                                <h3 className="edmek mt-1">{val.location}</h3>
+
+                                <div className="flex mt-2 justify-between">
+
+                                   <div className="flex">
+                                   {
+                                        Array.from({length:randomNumber},(_, index)=>{
+                                            return(
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 50" height={"40px"} width={"28px"} >
+                                                    <path fill={"green"} d="M16.29 19.72c4.22-4.22 8.4-17.56 6.7-19.26S7.95 2.93 3.73 7.16C.67 10.22.62 15.58 3.5 18.98L15.62 6.86c.29-.29.77-.29 1.06 0s.29.77 0 1.06L4.57 20.03l-2.14 2.14c-.29.29-.29.77 0 1.06s.77.29 1.06 0l2.34-2.34c3.34 1.88 7.78 1.51 10.46-1.17Z" />
+                                                </svg>
+                                            )
+                                        })
+                                    }
+
+                                    {
+                                        Array.from({length:difference},(_, index)=>{
+                                            return(
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 50" height={"40px"} width={"28px"} >
+                                                    <path fill={"black"} d="M16.29 19.72c4.22-4.22 8.4-17.56 6.7-19.26S7.95 2.93 3.73 7.16C.67 10.22.62 15.58 3.5 18.98L15.62 6.86c.29-.29.77-.29 1.06 0s.29.77 0 1.06L4.57 20.03l-2.14 2.14c-.29.29-.29.77 0 1.06s.77.29 1.06 0l2.34-2.34c3.34 1.88 7.78 1.51 10.46-1.17Z" />
+                                                </svg>
+                                            )
+                                        })
+                                    }
+
+                                    <p className="edjneid ms-2 ">Travel Sustainable Level {randomNumber}</p>
+                                   </div>
+
+                                    <p className="eiduuied">₹ {Math.floor(val.avgCostPerNight)}</p>
+
+                                </div>
+
+                                <p className="font-normal jdeeijdi">Located 820 feet from the new Digha sea beach, this OYO hotel is equipped with an in-house restaurant and free breakfast is served to the guests. </p>
+
+                                <div className="mt-3 flex justify-end">
+
+                                    <Button className="eheuene" text = "See Availability"></Button>
+                                </div>                            
                             </div>
                         </div>
                           </div>

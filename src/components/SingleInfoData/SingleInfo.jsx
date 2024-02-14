@@ -30,17 +30,19 @@ function SingleInfo() {
                 </div>
             </div>
 
-           <div>
+            <div>
                 <BedAvailability/>
-           </div>
-           
+            </div>
+            
 
-           <div>
-            <HotelFacilities/>
-           </div>
+            <div>
+                <HotelFacilities/>
+            </div>
 
-           <HomePageFooter/>
 
+            <div>
+                <HomePageFooter/>
+            </div>
         </div>
     )
 }

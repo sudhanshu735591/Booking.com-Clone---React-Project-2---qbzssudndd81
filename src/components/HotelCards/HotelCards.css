@@ -4,6 +4,7 @@
     padding: 20px;
     flex-direction: column;
     gap: 20px;
+    width: 80%;
 }
 
 .edjkednjk3n{
@@ -20,9 +21,7 @@
     border: 2px solid rgb(205, 188, 188);
 }
 
-.ed3dk3kdk3{
-    font-weight: normal;
-}
+
 
 
 .fedjnejd{
@@ -31,4 +30,81 @@
 
 .edjne{
     height: 20px;
+}
+
+.ejhfh{
+    color: red;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.edhneu{
+    color: black;
+    font-weight: normal;
+}
+
+.eheuene{
+    background-color: #006ce4;
+    color: white;
+    padding: 7px;
+    width: 30%;
+    border-radius: 6px;
+}
+
+.edebh{
+    position: sticky;
+    top: 0;
+}
+
+.edmek{
+    color: blueviolet;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.eidneiej{
+    height: 17px;
+}
+
+.edjneid{
+    font-weight: normal;
+    font-size: 13px;
+    color: red;
+}
+
+.ediedie{
+    font-weight: 700;
+}
+
+.jdeeijdi{
+    font-size: 14px;
+}
+
+.eduedui{
+    background-color: darkblue;
+    color: white;
+    padding: 7px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+
+.eiduuied{
+    font-size: larger;
+    font-weight: 600;
+}
+
+.edeidui3{
+    height: 34px;
+    width: 34px;
+    border: 2px solid white;
+    position: relative;
+    bottom: 183px;
+    left: 154px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
