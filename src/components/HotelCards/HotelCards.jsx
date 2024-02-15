@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./HotelCards.css";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";
 import Button from "../Button/Button";
 import DropDown from "../DropDown/DropDown";
@@ -13,16 +13,15 @@ function HotelCards() {
 
     const [allData, setAllData] = useState([]);
 
+    const [duplicateData, setDuplicateData] = useState([]);
+
     const navigate = useNavigate();
 
     let [inputChange, setInputChange] = useState();
 
-
     const inputChangeHandler = (data) => {
         setInputChange(data);
     }
-
-
 
     const apiData = async () => {
         try {
@@ -34,8 +33,9 @@ function HotelCards() {
             })
 
             const res = await data.json();
-            console.log("Response", res?.data?.hotels);
+            console.log("res", res?.data?.hotels);
             setAllData(res?.data?.hotels);
+            setDuplicateData(res?.data?.hotels);
 
         }
         catch (error) {
@@ -43,38 +43,60 @@ function HotelCards() {
         }
     }
 
+    useEffect(()=>{
+        if(!inputChange) return;
 
+        let newData = [...allData];
+
+        if(inputChange==="Price (lowest first)" || inputChange==="Property rating (Low to High)"){
+            newData.sort((a,b)=>a.avgCostPerNight-b.avgCostPerNight);
+        }
     
-    if(inputChange==="Price (lowest first)" || inputChange==="Property rating (Low to High)"){
-        allData.sort((a,b)=>a.avgCostPerNight-b.avgCostPerNight);
-       
-    }
-    else if(inputChange==="Property rating (High to low)"){
-        allData.sort((a,b)=>b.avgCostPerNight-a.avgCostPerNight);
-    }
-
-    else if(inputChange==="Homes and apartment first"){
-        const newData = allData.filter(val=>val.childAndExtraBedPolicy && val.childAndExtraBedPolicy.extraBedProvidedForChild === true);
-        if (newData.length !== allData.length) {
-            setAllData(newData);
+        else if(inputChange==="Property rating (High to low)"){
+            newData.sort((a,b)=>b.avgCostPerNight-a.avgCostPerNight);
         }
-    }
-
-    else if(inputChange==="Top pics for long stays"){
-        const newData = allData.filter(val=>val.childAndExtraBedPolicy && val.childAndExtraBedPolicy.extraBedForAdditionalGuest === true);
-        if (newData.length !== allData.length) {
-            setAllData(newData);
+    
+        else if(inputChange==="Homes and apartment first"){
+            newData = allData.filter(val=>val.childAndExtraBedPolicy && val.childAndExtraBedPolicy.extraBedProvidedForChild === true);
         }
-    }
+    
+        else if(inputChange==="Top pics for long stays"){
+            newData = allData.filter(val=>val.childAndExtraBedPolicy && val.childAndExtraBedPolicy.extraBedProvidedForChild === false);
+        }
 
+
+        else if(inputChange==="Best reviwed and lowest price"){
+            newData = allData.filter(val=>val.childAndExtraBedPolicy && val.childAndExtraBedPolicy.extraBedForAdditionalGuest === true);
+        }
+
+        else if(inputChange==="Property rating and price"){
+            newData = allData.filter(val=>val.childAndExtraBedPolicy && val.childAndExtraBedPolicy.extraBedForAdditionalGuest === false);
+        }
+
+        else if(inputChange==="Distance From DownTown"){
+            newData = allData.filter(val=>val.houseRules && val.houseRules.restrictions.petsAllowed === true);
+        }
+
+        else if(inputChange==="Top Reviewed"){
+            newData = allData.filter(val=>val.houseRules && val.houseRules.restrictions.petsAllowed === false);
+        }
+
+        else if(inputChange==="Distance from closest beach"){
+            newData = allData.filter(val=>val.houseRules && val.houseRules.restrictions.smokingAllowed === false);
+        }
+
+        setDuplicateData(newData);
+
+    },[inputChange])
+   
 
     useEffect(() => {
         apiData();
     }, [])
 
 
-    function onClickImageHandler() {
-        navigate("/Singleinfo");
+    function onClickImageHandler(id) {
+        console.log("id issss", id);
     }
 
 
@@ -97,14 +119,14 @@ function HotelCards() {
 
                         <div className="flex mt-2 items-center gap-2">
                             <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Guesthouses</p>
+                            <p className="font-normal">Child Allowance</p>
                         </div>
 
 
 
                         <div className="flex mt-2 items-center gap-2">
                             <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Bed and Breakfasts</p>
+                            <p className="font-normal">Guest Allowance</p>
                         </div>
 
                         <div className="flex mt-2 items-center gap-2">
@@ -196,7 +218,8 @@ function HotelCards() {
                     <DropDown inputChangeHandler={inputChangeHandler} />
 
                     {
-                        allData && allData.length > 0 && allData.map((val) => {
+                        duplicateData && duplicateData.length > 0 && duplicateData.map((val) => {
+                            
                             let randomNumber = Math.floor(Math.random() * 3 + 1);
                             let difference = 3 - randomNumber;
                             let limitedImages = val.rating;
@@ -206,7 +229,11 @@ function HotelCards() {
                                 <div className="edidjioj">
                                     <div className="edjeoidi">
                                         <div className="edoiejdio">
-                                            <img onClick={onClickImageHandler} className="edjkednjk3n" src={val.images[0]} />
+
+                                            <Link to={`/Singleinfo/${val._id}`}>
+                                                <img  className="edjkednjk3n" src={val.images[0]} />
+                                            </Link>
+
                                             <div className="edeidui3">
                                                 <span class="eedba9e88a"><span class="fcd9eec8fb bf9a32efa5" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height={"17px"}><path d="M12.541 21.325l-9.588-10a4.923 4.923 0 1 1 6.95-6.976l1.567 1.566a.75.75 0 0 0 1.06 0l1.566-1.566a4.923 4.923 0 0 1 6.963 6.962l-9.6 10.014h1.082zm-1.082 1.038a.75.75 0 0 0 1.082 0l9.59-10.003a6.418 6.418 0 0 0-.012-9.07 6.423 6.423 0 0 0-9.083-.001L11.47 4.854h1.06l-1.566-1.566a6.423 6.423 0 1 0-9.082 9.086l9.577 9.99z"></path></svg></span></span>
                                             </div>
@@ -290,5 +317,12 @@ function HotelCards() {
 }
 
 export default HotelCards;
+
+
+
+
+
+
+
 
 

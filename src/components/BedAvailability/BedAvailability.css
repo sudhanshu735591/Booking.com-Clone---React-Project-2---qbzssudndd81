@@ -13,6 +13,7 @@ table, th, td {
 .rfffr{
     background-color: #3daeff;
     color: white;
+    font-size: 10px;
 }
 
 .dji3jo{
@@ -29,4 +30,19 @@ table, th, td {
     margin: auto;
     display: flex;
     justify-content: center;
+}
+.ediediei{
+    font-size: 15px;
+    height: 4rem;
+    background-color: blueviolet;
+    color: white;
+    
+}
+
+
+.jnjnj{
+    color: blueviolet;
+    text-decoration: underline;
+    font-weight: 700;
+    cursor: pointer;
 }

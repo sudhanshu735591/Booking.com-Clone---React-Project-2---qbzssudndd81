@@ -15,7 +15,7 @@ function App() {
         <Route path = "/findStayPage" element = {<FindStayPage/>}/>
         <Route path = "/FlightSearchPage" element={<Flightsearch/>}/>
         <Route path = "/Hotels"  element={<HotelCards/>}/>
-        <Route path="/Singleinfo" element={<SingleInfo/>}/>
+        <Route path="/Singleinfo/:id" element={<SingleInfo/>}/>
       </Routes>
   );
 }

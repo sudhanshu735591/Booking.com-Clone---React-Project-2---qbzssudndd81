@@ -33,7 +33,6 @@ function SingleInfo() {
             <div>
                 <BedAvailability/>
             </div>
-            
 
             <div>
                 <HotelFacilities/>
