@@ -1,13 +1,23 @@
 import { useState } from "react";
 import "./DropDown.css";
 
-function DropDown(){
+function DropDown(props){
+
+    const {inputChangeHandler} = props;
 
     let [flag , setFlag] = useState(false);
+
+    const handleChange = (e)=>{
+        inputChangeHandler(e.target.innerText);
+    }
 
     function handleClick(){
         setFlag(!flag)
     }
+
+
+
+    
 
     return(
         <div className="jcnjcnk"  onClick={handleClick}>
@@ -18,18 +28,18 @@ function DropDown(){
             </div>
 
             {
-                flag && <div className="edhhd mt-3">
-                <div className="ddcii">Top pics for long stays</div>
+                flag && <div className="edhhd mt-3" onClick={handleChange}>
+                <div  className="ddcii">Top pics for long stays</div>
                 <div className="ddcii">Homes and apartment first</div>
                 <div className="ddcii">Price (lowest first)</div>
                 <div className="ddcii">Best reviwed and lowest price</div>
                 <div className="ddcii">Property rating (High to low)</div>
-                <div className="ddcii">Property rating (High to low)</div>
+                <div className="ddcii">Property rating (Low to High)</div>
                 <div className="ddcii">Property rating and price</div>
                 <div className="ddcii">Distance From DownTown</div>
                 <div className="ddcii">Top Reviewed</div>
                 <div className="ddcii">Distance from closest beach</div>
-            </div>
+                </div>
             }
            
         </div>
