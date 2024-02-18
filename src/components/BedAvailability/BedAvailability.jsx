@@ -8,7 +8,6 @@ function BedAvailability() {
     const [data, setData] = useState();
 
 
-
     const singleDataApi = async () => {
         try {
             let data = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/hotel/${id}`, {
@@ -67,9 +66,6 @@ function BedAvailability() {
                         </tr>
                     )
                 })}
-
-
-
             </table>
         </div>
     )

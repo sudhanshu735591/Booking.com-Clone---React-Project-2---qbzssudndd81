@@ -1,7 +1,19 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import "./SearchCard.css";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function SearchCard(){
+
+    const [searchCity, setSearchCity] = useState();
+
+    const navigate = useNavigate()
+
+
+    function onClickHandler(){
+        navigate(`/Hotels?search=${JSON.stringify(searchCity)}`)
+    }
+
     return(
         <div className="ejdnjdn p-3 ">
             <div className="text-xl font-medium">Search</div>
@@ -10,7 +22,7 @@ function SearchCard(){
                 <div>Destination/property name:</div>
                 <div className="flex bg-white gap-2 items-center p-2">
                     <span class="fcd9eec8fb d24fc26e73 f64eb5d122" aria-hidden="true"><svg viewBox="0 0 128 128" width="1em" height="1em"><path d="M118.8 113.2l-31-31A4 4 0 0 0 85 81a44 44 0 1 0-4 4 4 4 0 0 0 1.2 2.8l31 31a4 4 0 0 0 5.6-5.7zM52 88a36 36 0 1 1 36-36 36 36 0 0 1-36 36z"></path></svg></span>
-                    <input name="ss" class="eb46370fe1" placeholder="Where are you going?" data-destination="1" autocomplete="off" aria-autocomplete="list" aria-controls="autocomplete-results" aria-haspopup="listbox" aria-label="Where are you going?" aria-expanded="true" role="combobox" id=":rt:" value="Mumbai"></input>
+                    <input name="ss" class="eb46370fe1" onChange={(e)=>setSearchCity(e.target.value)} placeholder="Where are you going?" data-destination="1" autocomplete="off" aria-autocomplete="list" aria-controls="autocomplete-results" aria-haspopup="listbox" aria-label="Where are you going?" aria-expanded="true" role="combobox" id=":rt:"></input>
                 </div>
             </div>
 
@@ -18,16 +30,16 @@ function SearchCard(){
             <div className="mt-1">
                 <div>Check-in date</div>
                 <div className="">
-                    <input type="date" placeholder="edjejid"/>
-                    
+                    <input className="rjnjed" type="date"/>
                 </div>
             </div>
 
             <div className="mt-1">
                 <div>Check-out date</div>
                 <div className="flex flex-col">
-                    <input type="date" placeholder="edjejid"/>
-                    <input className="mt-2 w-55 edkjne p-2" type="text" placeholder="ideji" value="2-adult . 0 children. 1 room"/>
+                    <input type="date" className="rjnjed"/>
+                    <div className="mt-2">19-night stay</div>
+                    <input className="mt-2 w-55 rjnjed p-2" type="text" placeholder="ideji" value="2-adult . 0 children. 1 room"/>
                     
                 </div>
             </div>
@@ -47,7 +59,7 @@ function SearchCard(){
 
 
             <div className="eiend mt-2">
-                <Button className="dcjnjrn"  text = "Search"/>
+                <Button onClick = {onClickHandler} className="dcjnjrn" text = "Search"/>
             </div>
 
         </div>

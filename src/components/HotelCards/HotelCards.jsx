@@ -1,10 +1,11 @@
 import { useEffect, useReducer, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./HotelCards.css";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";
 import Button from "../Button/Button";
 import DropDown from "../DropDown/DropDown";
+import CheckBox from "../CheckBox/CheckBox";
 
 function HotelCards() {
     let [searchParams] = useSearchParams();
@@ -15,13 +16,26 @@ function HotelCards() {
 
     const [duplicateData, setDuplicateData] = useState([]);
 
-    const navigate = useNavigate();
+    const [filterationData, setFilterationData] = useState([]);
 
     let [inputChange, setInputChange] = useState();
+
+    const [checkBoxCheked, setCheckBoxCheked] = useState(CheckBox);
+
+    const [text, setText] = useState("");
 
     const inputChangeHandler = (data) => {
         setInputChange(data);
     }
+
+ 
+    // const handleCheckBox = (id)=>{
+    //     const updatedCheckboxes = checkBoxCheked.map((val)=>{
+    //         val.id==id?val.checked=true:val.checked=false
+    //         return val;
+    //     })
+    //     setCheckBoxCheked(updatedCheckboxes);
+    // }
 
     const apiData = async () => {
         try {
@@ -33,14 +47,51 @@ function HotelCards() {
             })
 
             const res = await data.json();
-            console.log("res", res?.data?.hotels);
             setAllData(res?.data?.hotels);
             setDuplicateData(res?.data?.hotels);
-
+            setFilterationData(res?.data?.hotels);
         }
         catch (error) {
             console.error(error)
         }
+    }
+
+    function filterDataHandler(){
+        {filterationData && filterationData.forEach((val)=>{
+                            
+            let randomNumber = Math.floor(Math.random()*2)+1;
+
+            let  newArr = []
+            
+            if(randomNumber%2===0){
+
+                newArr.push({
+                    "Child Allowance": true,
+                    "Guest Allowance": false,
+                    "Chalets": false,
+                    "Vacation Homes": true,
+                    "Farm Stays": false,
+                    "Homestays": true,
+                    "Resort Vilages": false,
+                    "Country Houses": true
+                });
+            }
+
+            else{
+                newArr.push({
+                    "Child Allowance": false,
+                    "Guest Allowance": true,
+                    "Chalets": true,
+                    "Vacation Homes": false,
+                    "Farm Stays": true,
+                    "Homestays": false,
+                    "Resort Vilages": false,
+                    "Country Houses": false
+                });
+            }
+            
+            val[0] = newArr;
+        })}
     }
 
     useEffect(()=>{
@@ -92,13 +143,9 @@ function HotelCards() {
 
     useEffect(() => {
         apiData();
+        filterDataHandler();
     }, [])
-
-
-    function onClickImageHandler(id) {
-        console.log("id issss", id);
-    }
-
+  
 
     return (
         <div>
@@ -117,49 +164,25 @@ function HotelCards() {
                     <div className="w-60 border-2 p-2">
                         <h3 className="font-bold">Your Previous Filters</h3>
 
-                        <div className="flex mt-2 items-center gap-2">
-                            <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Child Allowance</p>
-                        </div>
+                        
 
+                       
+                      
+                        {
+                            checkBoxCheked.map((val)=>{
 
-
-                        <div className="flex mt-2 items-center gap-2">
-                            <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Guest Allowance</p>
-                        </div>
-
-                        <div className="flex mt-2 items-center gap-2">
-                            <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Chalets</p>
-                        </div>
-
-                        <div className="flex mt-2 items-center gap-2">
-                            <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Vacation Homes</p>
-                        </div>
-
-
-                        <div className="flex mt-2 items-center gap-2">
-                            <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Farm Stays</p>
-                        </div>
-
-
-                        <div className="flex mt-2 items-center gap-2">
-                            <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Homestays</p>
-                        </div>
-
-                        <div className="flex mt-2 items-center gap-2">
-                            <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Resort Villages</p>
-                        </div>
-
-                        <div className="flex mt-2 items-center gap-2">
-                            <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
-                            <p className="font-normal">Country Houses</p>
-                        </div>
+                                return(
+                                    <div className="flex mt-2 items-center gap-2">
+                                        <input 
+                                        id={val.id} 
+                                        type="checkbox"
+                                        name="bordered-checkbox" 
+                                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
+                                        <label for="checkBox">{val.label}</label>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
 
 
@@ -216,6 +239,7 @@ function HotelCards() {
 
                 <div className="eknedo">
                     <DropDown inputChangeHandler={inputChangeHandler} />
+                    {/* {filterationData && console.log("filterationData",filterationData)} */}
 
                     {
                         duplicateData && duplicateData.length > 0 && duplicateData.map((val) => {
