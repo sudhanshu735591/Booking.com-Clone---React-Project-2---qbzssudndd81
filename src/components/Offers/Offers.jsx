@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Button from "../Button/Button";
 import data from "./OfferArray";
 import "./Offers.css";
 import { useNavigate } from "react-router";
+import MenCountCard from "../MenCountCard/MenCountCard";
+import UserContext from "../ContextApi/userContext";
 
 function Offers() {
     const navigate = useNavigate();
@@ -11,36 +13,24 @@ function Offers() {
 
     const [visibleItems, setVisibleItems] = useState(3);
 
-    // function LeftCaraousel() {
-    //     setVisibleItems((prevVisibleItems) => Math.max(3, prevVisibleItems - 1));
-    //     console.log("Left Carousel Clicked", visibleItems);
-
-    // }
-
-
-    // function handleRightCarousel() {
-    //     setVisibleItems((prevVisibleItems) =>
-    //         Math.min(prevVisibleItems + 2)
-    //     );
-
-    //     console.log("rigth Carousel Clicked", visibleItems);
-    // }
-
+    const {handleFlagCard} = useContext(UserContext);
 
 
     function StayButtonHandler() {
         navigate("/FlightSearchPage");
     }
 
+   
     return (
-        <div className="offerSection">
+        <div className="offerSection w-[68%] lg:w-full">
+            {handleFlagCard &&  <div className="edjjijed">
+                <MenCountCard/>
+            </div>}
 
-            <div className="offer_iee8938">
+            <div className="offer_iee8938 lg:mt-40">
                 <div className="edjn82992820">Offers</div>
 
                 <div className="djniu298">Promotions, deals, and special offers for you</div>
-
-
 
                 <div ref={containRef} className="dj3ei398">
                     {

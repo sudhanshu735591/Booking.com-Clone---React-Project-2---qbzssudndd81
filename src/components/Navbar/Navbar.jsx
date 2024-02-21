@@ -4,6 +4,7 @@ import Stays from "./BottomNav/Stays/Stays/Stays";
 import FormData from "./FormData/FormData";
 import "./Navbar.css";
 import TopNav from "./TopNav/TopNav";
+import MenCountCard from "../MenCountCard/MenCountCard";
 // import Calender from "./Calender/Calender";
 
 function Navbar(){
@@ -29,23 +30,10 @@ function Navbar(){
               <FormData flag = {flag} setFlag={setFlag}/>
             </div>
 
-            {flag && <div className="calender">
-                <div className="dkjn3ij3">
-                    <div className="ediuj3ie38">Calender</div>
-                    <div className="edij30e">I'm flexible</div>
 
-                </div>
+          
 
-                <div className="cdkmeod03">
-                    <div className="eijeif98">
-                        {/* <Calender/> */}
-                    </div>
-
-                    <div className="eijeif98">
-                    </div>
-                </div>
-              
-            </div>}
+            
         </div>
     )
 }  

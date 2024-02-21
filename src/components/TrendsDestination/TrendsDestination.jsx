@@ -5,7 +5,7 @@ import "./TrendingDestination.css";
 function TrendingDestination() {
 
     return (
-        <div className="jeni3en">
+        <div className="m-auto w-[67%] lg:w-full">
             <div className="edu3ui">Trending destinations</div>
             <div className="edijeio3">Most popular choices for travelers from India</div>
 

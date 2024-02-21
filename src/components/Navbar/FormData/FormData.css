@@ -8,8 +8,26 @@
     border-radius: 4px;
     overflow: hidden;
     width: 100%;
+    padding: 0px 36px;
 }
 
 ::-webkit-input-placeholder { 
     padding: 10px;
 }
+
+/* .dhdhdu{
+    position: absolute;
+    left: 62%;
+    top: 12px;
+} */
+
+.FormDataButton{
+    background: blueviolet;
+    color: white;
+    width: 35%;
+    height: 55px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 20px;
+}
+

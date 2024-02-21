@@ -5,6 +5,12 @@
     gap: 22%;
 }
 
+@media (max-width:1023px){
+    .dnjed939{
+        justify-content: space-between;
+    }
+}
+
 .ee3r3433{
     color: white;
     font-size: 26px;

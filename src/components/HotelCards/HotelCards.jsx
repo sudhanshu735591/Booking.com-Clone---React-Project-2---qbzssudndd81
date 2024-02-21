@@ -6,11 +6,12 @@ import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";
 import Button from "../Button/Button";
 import DropDown from "../DropDown/DropDown";
 import CheckBox from "../CheckBox/CheckBox";
+import TopNav from "../Navbar/TopNav/TopNav";
+import FormData from "../Navbar/FormData/FormData";
 
 function HotelCards() {
-    let [searchParams] = useSearchParams();
 
-    // const [data, dispatch] = useReducer(reducer, initialState);
+    let [searchParams] = useSearchParams();
 
     const [allData, setAllData] = useState([]);
 
@@ -22,20 +23,27 @@ function HotelCards() {
 
     const [checkBoxCheked, setCheckBoxCheked] = useState(CheckBox);
 
-    const [text, setText] = useState("");
+    const [checkBoxValue, setCheckBoxValue] = useState([]);
 
     const inputChangeHandler = (data) => {
         setInputChange(data);
     }
 
- 
-    // const handleCheckBox = (id)=>{
-    //     const updatedCheckboxes = checkBoxCheked.map((val)=>{
-    //         val.id==id?val.checked=true:val.checked=false
-    //         return val;
-    //     })
-    //     setCheckBoxCheked(updatedCheckboxes);
-    // }
+
+    function checkBoxValueHandler(value){
+        if(!checkBoxValue.includes(value)){
+            setCheckBoxValue([...checkBoxValue, value]);
+        }
+
+        if(checkBoxValue.includes(value)){
+            const updatedCheckBox = checkBoxValue.filter(item=>item!=value);
+            setCheckBoxValue(updatedCheckBox);
+        }
+
+        filterDataHandler();
+        console.log("2nd time", checkBoxValue);
+    }
+    
 
     const apiData = async () => {
         try {
@@ -58,13 +66,11 @@ function HotelCards() {
 
     function filterDataHandler(){
         {filterationData && filterationData.forEach((val)=>{
-                            
             let randomNumber = Math.floor(Math.random()*2)+1;
 
-            let  newArr = []
+            let newArr = [];
             
             if(randomNumber%2===0){
-
                 newArr.push({
                     "Child Allowance": true,
                     "Guest Allowance": false,
@@ -73,7 +79,7 @@ function HotelCards() {
                     "Farm Stays": false,
                     "Homestays": true,
                     "Resort Vilages": false,
-                    "Country Houses": true
+                    "Country Houses": true,
                 });
             }
 
@@ -89,8 +95,10 @@ function HotelCards() {
                     "Country Houses": false
                 });
             }
-            
             val[0] = newArr;
+
+            console.log("hello", filterationData);
+
         })}
     }
 
@@ -149,32 +157,30 @@ function HotelCards() {
 
     return (
         <div>
-            <Navbar />
-
-            <div className="w-8/12 mt-20 m-auto flex gap-2 md:w-[100%] md:text-[7px]">
+            {/* <Navbar /> */}
+            <div className="ekdmkemd">
+            <TopNav/>
+            </div>
+            
+            <div className="w-8/12 mt-20 m-auto flex gap-2 md:w-[100%] md:text-[7px] lg:w-full">
 
                 {/* filter Section */}
                 <div>
-                    <div>
+                    {/* <div>
                         Map
-                    </div>
+                    </div> */}
 
                     <div className="border-2 p-2 font-bold  w-full rounded-t-lg">Filter by:</div>
 
                     <div className="w-60 border-2 p-2">
                         <h3 className="font-bold">Your Previous Filters</h3>
-
-                        
-
-                       
-                      
                         {
-                            checkBoxCheked.map((val)=>{
-
+                            checkBoxCheked.map((val, index)=>{
                                 return(
                                     <div className="flex mt-2 items-center gap-2">
                                         <input 
-                                        id={val.id} 
+                                        id={val.id}     
+                                        onChange={()=>checkBoxValueHandler(val.label, index, val.id)} 
                                         type="checkbox"
                                         name="bordered-checkbox" 
                                         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />

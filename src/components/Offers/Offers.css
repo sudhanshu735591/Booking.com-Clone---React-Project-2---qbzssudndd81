@@ -1,5 +1,4 @@
 .offerSection{
-    width: 68%;
     margin: 52px auto;
 }
 
@@ -12,6 +11,16 @@
 .dj3ei398{
     display: flex;
     gap: 10px;
+}
+
+@media (max-width:1023px){
+    .dj3ei398{
+        flex-direction: column;
+    }
+
+    .wsi2u9e93{
+        width:100% !important;  
+    }
 }
 
 .djniu298{
@@ -79,3 +88,21 @@ p{
 ::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
   }
+
+
+  .edjjijed{
+    position: relative;
+    left: 60%;
+    top: 130%;
+    width: 29%;
+  }
+
+
+  @media (max-width:1023px){
+    .edjjijed{
+        left: 0;
+    }
+  }
+
+
+  

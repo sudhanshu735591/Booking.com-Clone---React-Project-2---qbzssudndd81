@@ -41,8 +41,9 @@
 
 .edi3u3ji{
     display: flex;
-    gap: 10px;
     gap: 15px;
+    width: 100%;
+    overflow: scroll;
 }
 
 .ejnfnirfif{

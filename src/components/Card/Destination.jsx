@@ -3,11 +3,10 @@ import "./Destination.css";
 
 function Destinations(props) {
     const {heading, para, DestDetails, edi393idj} = props;
-
     
     return (
         <div className="edui3ie">
-            <div className="enoo3eji3e90">{heading}</div>
+            <div className="w-[67%] m-auto font-bold text-xl lg:w-full">{heading}</div>
             <div className="edn3iej93">{para}</div>
             <div className={edi393idj}>
                 {

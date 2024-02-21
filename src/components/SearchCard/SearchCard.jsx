@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../Button/Button";
 import "./SearchCard.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import UserContext from "../ContextApi/userContext";
+import MenCountCard from "../MenCountCard/MenCountCard";
 
 function SearchCard(){
 
     const [searchCity, setSearchCity] = useState();
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const {adultCount} = useContext(UserContext);
+
+    const {roomCount} = useContext(UserContext);
+
+    const {childrenCount} = useContext(UserContext);
+    const {handleFlagCard, setHandleFlagCard} = useContext(UserContext);
 
 
     function onClickHandler(){
@@ -39,8 +48,11 @@ function SearchCard(){
                 <div className="flex flex-col">
                     <input type="date" className="rjnjed"/>
                     <div className="mt-2">19-night stay</div>
-                    <input className="mt-2 w-55 rjnjed p-2" type="text" placeholder="ideji" value="2-adult . 0 children. 1 room"/>
-                    
+                    <input onClick={()=>setHandleFlagCard(true)} className="mt-2 w-55 rjnjed p-2" type="text" placeholder="ideji" value={`${adultCount} adults. ${childrenCount} children. ${roomCount} room`}/>
+                    {handleFlagCard &&
+                    <div>
+                        <MenCountCard/>
+                    </div>}
                 </div>
             </div>
 
