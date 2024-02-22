@@ -86,8 +86,6 @@
     }
 }
 
-
-
 .calender{
     width: 48%;
     background-color: white;
@@ -132,19 +130,6 @@
     align-items: center;
 }
 
-/* .react-calendar__month-view__weekdays{
-    width: 385px;
-}
-
-.react-calendar__month-view__days{
-    width: 363px;
-} */
-
-/* div{
-    display: flex;
-    align-items: flex-end;
-    width: 53%;
-} */
 
 .cdkmeod03{
     display: flex;
@@ -163,7 +148,6 @@
     border-bottom: 2px solid blue;
 
 }
-
 
 .edij30e:hover{
     background-color: rgb(255, 227, 229);

@@ -20,8 +20,6 @@ function FormData(props){
 
     const {setHandleFlagCard}= useContext(UserContext);
     
-    
-
     function onChangeHandler(e){
         setSearchCity(e.target.value);
     }

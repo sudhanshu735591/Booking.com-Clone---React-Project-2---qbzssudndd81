@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "./BedAvailability.css";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import UserContext from "../ContextApi/userContext";
 
 function BedAvailability() {
@@ -12,6 +12,12 @@ function BedAvailability() {
     const {adultCount} = useContext(UserContext);
 
     const {childrenCount} = useContext(UserContext);
+
+    const navigate = useNavigate();
+
+    function handleClick(){
+        navigate("/FormDetails");
+    }
 
     const singleDataApi = async () => {
         try {
@@ -47,6 +53,7 @@ function BedAvailability() {
                         <th>Number of guests</th>
                         <th>Price for 15 days</th>
                         <th>Your Choices</th>
+                        <th>button</th>
                     </tr>
                 </thead>
 
@@ -67,6 +74,7 @@ function BedAvailability() {
                             <td className="dji3jo">
                                 <p className="font-normal text-red-500">₹ {(val.cancellationPolicy)}</p>
                             </td>
+                            <td onClick={handleClick}>click</td>
                         </tr>
                     )
                 })}

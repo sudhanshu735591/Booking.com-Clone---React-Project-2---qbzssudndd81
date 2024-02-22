@@ -4,7 +4,6 @@ import Stays from "./BottomNav/Stays/Stays/Stays";
 import FormData from "./FormData/FormData";
 import "./Navbar.css";
 import TopNav from "./TopNav/TopNav";
-import MenCountCard from "../MenCountCard/MenCountCard";
 // import Calender from "./Calender/Calender";
 
 function Navbar(){
@@ -13,7 +12,6 @@ function Navbar(){
     return(
         <div className="wjdnjnd33">
            <TopNav/>
-
            <div className="deidie09e">
             <Stays/>
             <Flight/>
@@ -29,11 +27,6 @@ function Navbar(){
             <div className="heroBannerSearchBox">
               <FormData flag = {flag} setFlag={setFlag}/>
             </div>
-
-
-          
-
-            
         </div>
     )
 }  

@@ -5,7 +5,6 @@ import Navbar from "../Navbar/Navbar";
 import Offers from "../Offers/Offers";
 import TrendingDestination from "../TrendsDestination/TrendsDestination";
 
-import properties from "../PropertiesDetails/Property";
 
 function Home(){
 

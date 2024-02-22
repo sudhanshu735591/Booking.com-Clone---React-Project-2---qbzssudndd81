@@ -1,5 +1,3 @@
-import { Children } from "react"
-import "./Button.css";
 
 function Button(props){
     const {text,className, onClick} = props 

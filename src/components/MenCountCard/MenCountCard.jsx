@@ -10,8 +10,6 @@ function MenCountCard() {
 
     const {roomCount, setRoomCount} = useContext(UserContext);
 
-    // const [handleFlagCard, setHandleFlagCard] = useState(false);
-
     const {setHandleFlagCard} = useContext(UserContext);
 
 

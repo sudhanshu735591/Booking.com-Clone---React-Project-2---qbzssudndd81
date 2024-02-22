@@ -7,6 +7,7 @@ import MenCountCard from "../MenCountCard/MenCountCard";
 import UserContext from "../ContextApi/userContext";
 
 function Offers() {
+    
     const navigate = useNavigate();
 
     const containRef = useRef(null);
