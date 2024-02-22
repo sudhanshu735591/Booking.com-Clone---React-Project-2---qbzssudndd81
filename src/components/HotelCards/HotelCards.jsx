@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./HotelCards.css";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";
 import Button from "../Button/Button";
 import DropDown from "../DropDown/DropDown";
@@ -24,6 +24,8 @@ function HotelCards() {
     const [checkBoxCheked, setCheckBoxCheked] = useState(CheckBox);
 
     const [checkBoxValue, setCheckBoxValue] = useState([]);
+
+    const navigate = useNavigate();
 
     const inputChangeHandler = (data) => {
         setInputChange(data);
@@ -153,6 +155,12 @@ function HotelCards() {
         apiData();
         filterDataHandler();
     }, [])
+
+
+
+    function handleHeartClick(){
+        navigate("/FavoriteList");
+    }
   
 
     return (
@@ -163,13 +171,7 @@ function HotelCards() {
             </div>
             
             <div className="w-8/12 mt-20 m-auto flex gap-2 md:w-[100%] md:text-[7px] lg:w-full">
-
-                {/* filter Section */}
                 <div>
-                    {/* <div>
-                        Map
-                    </div> */}
-
                     <div className="border-2 p-2 font-bold  w-full rounded-t-lg">Filter by:</div>
 
                     <div className="w-60 border-2 p-2">
@@ -264,7 +266,7 @@ function HotelCards() {
                                                 <img  className="edjkednjk3n" src={val.images[0]} />
                                             </Link>
 
-                                            <div className="edeidui3">
+                                            <div className="edeidui3" onClick={handleHeartClick}> 
                                                 <span class="eedba9e88a"><span class="fcd9eec8fb bf9a32efa5" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height={"17px"}><path d="M12.541 21.325l-9.588-10a4.923 4.923 0 1 1 6.95-6.976l1.567 1.566a.75.75 0 0 0 1.06 0l1.566-1.566a4.923 4.923 0 0 1 6.963 6.962l-9.6 10.014h1.082zm-1.082 1.038a.75.75 0 0 0 1.082 0l9.59-10.003a6.418 6.418 0 0 0-.012-9.07 6.423 6.423 0 0 0-9.083-.001L11.47 4.854h1.06l-1.566-1.566a6.423 6.423 0 1 0-9.082 9.086l9.577 9.99z"></path></svg></span></span>
                                             </div>
                                         </div>

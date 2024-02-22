@@ -1,19 +1,24 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "./BedAvailability.css";
 import { useParams } from "react-router";
+import UserContext from "../ContextApi/userContext";
 
 function BedAvailability() {
     const { id } = useParams();
+
     const [data, setData] = useState();
 
+    const {adultCount} = useContext(UserContext);
+
+    const {childrenCount} = useContext(UserContext);
 
     const singleDataApi = async () => {
         try {
             let data = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/hotel/${id}`, {
                 method: "GET",
                 headers: {
-                    projectID: "0f6ipegajht2"
+                    projectID: "0f6ipegajht2",
                 }
             });
             let res = await data?.json();
@@ -35,14 +40,13 @@ function BedAvailability() {
         <div className="jnjrnf ">
             <div className="font-bold">Availability</div>
 
-            <table className="w-full text-centre">
+            <table className="w-full">
                 <thead className="ediediei">
                     <tr>
                         <th>Room Type</th>
                         <th>Number of guests</th>
                         <th>Price for 15 days</th>
                         <th>Your Choices</th>
-                        <th>Select amount</th>
                     </tr>
                 </thead>
 
@@ -55,7 +59,7 @@ function BedAvailability() {
                                 <p className="font-normal text-sm">{val.bedDetail}</p>
                             </td>
 
-                            <td className="dji3jo">3</td>
+                            <td className="dji3jo">{adultCount+childrenCount}</td>
                             <td className="dji3jo">
                                 <p>₹ {Math.floor(val.costPerNight)}</p>
                             </td>

@@ -6,6 +6,7 @@ import FindStayPage from "./Offers/FindStayPage/FindStayPage";
 import Flightsearch from "./FlightSearcPage/FlightSearchPage";
 import HotelCards from "./HotelCards/HotelCards";
 import SingleInfo from "./SingleInfoData/SingleInfo";
+import FavoriteList from "./FavoriteList/FavoriteList";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path = "/FlightSearchPage" element={<Flightsearch/>}/>
         <Route path = "/Hotels"  element={<HotelCards/>}/>
         <Route path="/Singleinfo/:id" element={<SingleInfo/>}/>
+        <Route path = "/FavoriteList" element= {<FavoriteList/>}/>
       </Routes>
   );
 }
