@@ -1,8 +1,6 @@
 import "./AddToYourStay.css";
 
 
-import { memo } from "react";
-
 function HotelCheckoutAddToYourStayComponent() {
   return (
     <>
@@ -113,4 +111,4 @@ function HotelCheckoutAddToYourStayComponent() {
     </>
   );
 }
-export default memo(HotelCheckoutAddToYourStayComponent);
+export default HotelCheckoutAddToYourStayComponent;

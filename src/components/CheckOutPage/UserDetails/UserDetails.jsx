@@ -1,6 +1,17 @@
+import { useNavigate } from "react-router";
+import HotelCheckoutAddToYourStayComponent from "../../AddToYourStay/AddToYourStay";
+import Button from "../../Button/Button";
+import HotelArrival from "../../HotelArrivalComponent/HotelArrival";
 
 
 function UserDetails() {
+
+    const navigate = useNavigate();
+
+    function handleButtonClick(){
+        navigate("/paymentsection")
+    }
+    
     return (
         <div>
             <div className="font-bold text-xl">Enter your details</div>
@@ -15,7 +26,7 @@ function UserDetails() {
                 <div className="flex flex-col">
                     <label className="text-red-800 font-bold" for="First Name *">Enter your first name *</label>
                     <span className="flex border-2 bg-red-700">
-                        <input type="text" className="border-2 p-1 w-[300px]" />
+                        <input type="text" className="border-[1px] p-1 w-[300px]" />
                         <div className="pl-2 pr-2 flex justify-center items-center text-white">✘
                         </div>
                     </span>
@@ -24,7 +35,7 @@ function UserDetails() {
                 <div className="flex flex-col">
                     <label className="text-red-800 font-bold" for="First Name *">Enter your Last name *</label>
                     <span className="flex border-2 bg-red-700">
-                        <input type="text" className="border-2 p-1 w-[300px] " />
+                        <input type="text" className="border-[1px] p-1 w-[300px] " />
                         <div className="pl-2 pr-2 flex justify-center items-center text-white">✘
                         </div>
                     </span>
@@ -33,7 +44,7 @@ function UserDetails() {
                 <div className="flex flex-col">
                     <label className="text-red-800 font-bold" for="First Name *">Enter your email address *</label>
                     <span className="flex border-2 bg-red-700">
-                        <input type="text" className="border-2 p-1 w-[300px]" />
+                        <input type="text" className="border-[1px] p-1 w-[300px]" />
                         <div className="pl-2 pr-2 flex justify-center items-center text-white">✘
                         </div>
                     </span>
@@ -44,10 +55,28 @@ function UserDetails() {
             <div className="flex flex-col">
                 <label className="text-red-800 font-bold" for="First Name *">Enter your phone number</label>
                 <span className="flex border-2 bg-red-700 w-fit">
-                    <input type="number" className="border-2 p-1 w-[300px]"/>
+                    <input type="number" className="border-[1px] p-1 w-[300px]"/>
                     <div className="pl-2 pr-2 flex justify-center items-center text-white">✘</div>
                 </span>
                 <p className="font-normal text-sm">Needed by the property to validate your booking</p>
+            </div>
+
+            <div className="flex mt-4 gap-2">
+                <input type="radio"/>
+                <p className="font-normal">Yes, I want free paperless confirmation (recommended)</p>
+            </div>
+
+            <div>
+                <HotelCheckoutAddToYourStayComponent/>
+            </div>
+
+            <div>
+                <HotelArrival/>
+            </div>
+
+
+            <div className="mt-10 flex justify-end rounded">
+                <Button onClick = {handleButtonClick} text = "Next: Find details >" className = "rounded-md bg-blue-700 p-3 pl-8 pr-8 text-white"/>
             </div>
         </div>
     )

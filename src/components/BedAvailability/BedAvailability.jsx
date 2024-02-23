@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import "./BedAvailability.css";
 import { useNavigate, useParams } from "react-router";
 import UserContext from "../ContextApi/userContext";
+import { Link } from "react-router-dom";
 
 function BedAvailability() {
     const { id } = useParams();
@@ -13,11 +14,9 @@ function BedAvailability() {
 
     const {childrenCount} = useContext(UserContext);
 
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
-    function handleClick(){
-        navigate("/FormDetails");
-    }
+ 
 
     const singleDataApi = async () => {
         try {
@@ -45,7 +44,6 @@ function BedAvailability() {
     return (
         <div className="jnjrnf ">
             <div className="font-bold">Availability</div>
-
             <table className="w-full">
                 <thead className="ediediei">
                     <tr>
@@ -53,7 +51,9 @@ function BedAvailability() {
                         <th>Number of guests</th>
                         <th>Price for 15 days</th>
                         <th>Your Choices</th>
-                        <th>button</th>
+                        <Link to ={`/FormDetails/${id}`}>
+                            <th className="cursor-pointer bg-yellow-500 p-4">I'll Reserve</th>
+                        </Link>
                     </tr>
                 </thead>
 
@@ -74,11 +74,13 @@ function BedAvailability() {
                             <td className="dji3jo">
                                 <p className="font-normal text-red-500">₹ {(val.cancellationPolicy)}</p>
                             </td>
-                            <td onClick={handleClick}>click</td>
                         </tr>
                     )
                 })}
+
             </table>
+
+           
         </div>
     )
 }

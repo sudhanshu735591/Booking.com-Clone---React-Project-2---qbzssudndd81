@@ -1,6 +1,33 @@
+import { useEffect } from "react";
 
 
 function CheckOutHotel(){
+
+  
+    const singleDataApi = async () => {
+        try {
+            let data = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/hotel/${id}`, {
+                method: "GET",
+                headers: {
+                    projectID: "0f6ipegajht2"
+                }
+            });
+            let res = await data?.json();
+            // console.log("res", res?.data);
+            setData(res?.data);
+        }
+
+        catch (error) {
+            console.error(error);
+        }
+    }
+
+
+    useEffect(() => {
+        singleDataApi();
+    }, [])
+
+
     return(
             <div className="border-2 rounded-xl mt-10 p-4 flex flex-col justify-center ">
                 <div>Hotel</div>

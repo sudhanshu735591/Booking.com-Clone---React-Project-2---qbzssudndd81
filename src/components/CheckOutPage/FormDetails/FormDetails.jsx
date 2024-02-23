@@ -7,7 +7,7 @@ import UserDetails from "../UserDetails/UserDetails";
 import "./FormDetails.css";
 
 
-function FormDetails() {
+function   FormDetails() {
     return (
         <div>
             <div className="bg-indigo-800 p-3">

@@ -247,7 +247,6 @@ function HotelCards() {
 
                 <div className="eknedo">
                     <DropDown inputChangeHandler={inputChangeHandler} />
-                    {/* {filterationData && console.log("filterationData",filterationData)} */}
 
                     {
                         duplicateData && duplicateData.length > 0 && duplicateData.map((val) => {

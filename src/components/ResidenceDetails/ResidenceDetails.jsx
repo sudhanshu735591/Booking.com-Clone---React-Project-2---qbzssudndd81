@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 function ResidenceDetails() {
 
     const { id } = useParams();
-
     const [data, setData] = useState();
 
     const singleDataApi = async () => {
@@ -24,8 +23,6 @@ function ResidenceDetails() {
         catch (error) {
             console.error(error);
         }
-
-
     }
 
 
