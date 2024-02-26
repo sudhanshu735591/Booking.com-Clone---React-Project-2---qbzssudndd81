@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import Button from "../Button/Button";
 import "./BedAvailability.css";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import UserContext from "../ContextApi/userContext";
 import { Link } from "react-router-dom";
 
 function BedAvailability() {
+            
     const { id } = useParams();
 
     const [data, setData] = useState();
@@ -14,7 +14,6 @@ function BedAvailability() {
 
     const {childrenCount} = useContext(UserContext);
 
-    const navigate = useNavigate(); 
 
  
 
@@ -79,8 +78,6 @@ function BedAvailability() {
                 })}
 
             </table>
-
-           
         </div>
     )
 }

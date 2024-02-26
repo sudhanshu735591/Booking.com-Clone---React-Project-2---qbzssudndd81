@@ -1,9 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 
 function CheckOutHotel(){
 
-  
+    const {id } = useParams();
+
+    const [data, setData] = useState();
+
     const singleDataApi = async () => {
         try {
             let data = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/hotel/${id}`, {
@@ -13,7 +17,7 @@ function CheckOutHotel(){
                 }
             });
             let res = await data?.json();
-            // console.log("res", res?.data);
+            console.log("res", res?.data);
             setData(res?.data);
         }
 
@@ -30,9 +34,9 @@ function CheckOutHotel(){
 
     return(
             <div className="border-2 rounded-xl mt-10 p-4 flex flex-col justify-center ">
-                <div>Hotel</div>
-                <div className="font-bold">ibis New Delhi Aerocity - An Accor Brand</div>
-                <div className="w-fit">IGI Airport Aerocity, 110037 New Delhi, India</div>
+                {data && <div>{data.name}</div>}
+                {data && <div className="font-bold">{data.location}</div>}
+                {data && <div className="w-fit">{data.amenities[0]}</div>}
 
                 <div className="w-[90%] flex flex-wrap">
                     <div className="flex mt-3 gap-2 flex-wrap text-sm">

@@ -7,7 +7,7 @@ import UserDetails from "../UserDetails/UserDetails";
 import "./FormDetails.css";
 
 
-function   FormDetails() {
+function  FormDetails() {
     return (
         <div>
             <div className="bg-indigo-800 p-3">
@@ -26,8 +26,6 @@ function   FormDetails() {
                         <div className="font-bold">You are signed in</div>
                         <div>ersshekhar05@gmail.com</div>
                     </div>
-
-
 
                     <div className="border-2 p-3">
                         <UserDetails/>

@@ -20,7 +20,6 @@ function App() {
         <Route path = "/Hotels"  element={<HotelCards/>}/>
         <Route path="/Singleinfo/:id" element={<SingleInfo/>}/>
         <Route path = "/FavoriteList" element= {<FavoriteList/>}/>
-        {/* <Route path = "/FormDetails" element= {<FormDetails/>}/> */}
         <Route path = "/FormDetails/:id" element= {<FormDetails/>}/>
         <Route path="/paymentsection" element ={<PaymentDetails/>}/>
 
