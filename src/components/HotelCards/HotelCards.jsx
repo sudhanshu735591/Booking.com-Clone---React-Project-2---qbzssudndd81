@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../Navbar/navbar";
 import "./HotelCards.css";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";

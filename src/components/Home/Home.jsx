@@ -1,9 +1,10 @@
 import Destinations from "../Card/Destination";
 import DestDetails from "../Card/DestinationDetails";
 import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";
-import Navbar from "../Navbar/Navbar";
 import Offers from "../Offers/Offers";
 import TrendingDestination from "../TrendsDestination/TrendsDestination";
+import Navbar from "../Navbar/navbar";
+// import Navbar from "../navbar/navbar";
 
 
 function Home(){

@@ -10,6 +10,8 @@ const UserContextProvider = ( {children} )=>{
     const [roomCount, setRoomCount] = useState(0);
 
     const [handleFlagCard, setHandleFlagCard] = useState(false);
+
+    const [globalDate, setGlobalDate] = useState();
     
 
     return(
@@ -18,6 +20,7 @@ const UserContextProvider = ( {children} )=>{
             adultCount, setAdultCount,
             roomCount, setRoomCount,
             handleFlagCard, setHandleFlagCard,
+            globalDate, setGlobalDate
         }}>{children}</UserContext.Provider>
     )
 }

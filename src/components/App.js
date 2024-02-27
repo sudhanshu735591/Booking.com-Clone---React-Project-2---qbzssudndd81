@@ -9,6 +9,8 @@ import SingleInfo from "./SingleInfoData/SingleInfo";
 import FavoriteList from "./FavoriteList/FavoriteList";
 import FormDetails from "./CheckOutPage/FormDetails/FormDetails";
 import PaymentDetails from "./CheckOutPage/PaymentSection/PaymentSection";
+import FlightHome from "./FlightSection/FlightHome/FlightHome";
+import TicketType from "./FlightSection/TicketType/TicketType";
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
         <Route path = "/FavoriteList" element= {<FavoriteList/>}/>
         <Route path = "/FormDetails/:id" element= {<FormDetails/>}/>
         <Route path="/paymentsection" element ={<PaymentDetails/>}/>
-
+        <Route path="FlightSection" element={<FlightHome/>}/>
+        <Route path="TicketType" element={<TicketType/>}/>
 
       </Routes>
   );

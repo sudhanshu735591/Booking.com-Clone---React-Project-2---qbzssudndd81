@@ -1,4 +1,4 @@
-import Navbar from "../../Navbar/Navbar";
+import Navbar from "../../Navbar/navbar";
 import TopNav from "../../Navbar/TopNav/TopNav";
 import CheckOutHotel from "../CheckOutHotel/CheckOutHotel";
 import HotelDetails from "../HotelDetails/HotelDetails";

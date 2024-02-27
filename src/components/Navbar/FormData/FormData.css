@@ -31,3 +31,24 @@
     font-size: 20px;
 }
 
+.rdrDefinedRangesWrapper {
+    font-size: 12px;
+    width: 0px !important;
+    border-right: solid 1px #eff2f7;
+    background: #fff;
+}
+.rdrCalendarWrapper{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 20px;
+
+}
+
+.edjneidue98{
+    border: 4px solid orange;
+}
+
+.rdrMonthAndYearPickers{
+    display: none !important
+    ;
+    
+}
