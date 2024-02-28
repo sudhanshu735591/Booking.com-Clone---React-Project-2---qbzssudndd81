@@ -15,9 +15,20 @@ function CalenderApp() {
     }
   ]);
 
-  const {globalDate, setGlobalDate} = useContext(UserContext);
+  // const {globalDate, setGlobalDate} = useContext(UserContext);
 
-  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const { setStartWeekDay } = useContext(UserContext);
+
+  const { setStartDate} = useContext(UserContext);
+
+  const {setEndDate} = useContext(UserContext);
+
+  const {endWeekDay, setEndWeekDay} = useContext(UserContext);
+
+
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const month = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 
     
 
@@ -33,17 +44,13 @@ function CalenderApp() {
     const endMonth = endDate.getMonth() + 1;
     const endWeek = endDate.getDay();
 
-    console.log(`${startDay} ${startMonth} ${daysOfWeek[startWeek]}`);
-    console.log(`${endDay} ${endMonth} ${daysOfWeek[endWeek]}`);
-});
+    setStartWeekDay(`${daysOfWeek[startWeek]}`);
+    setEndWeekDay(`${daysOfWeek[endWeek]}`);
 
+    setStartDate(`${startDay} ${month[startMonth]}`);
+    setEndDate(`${endDay} ${month[endMonth]}`);
 
-
-
-
-
-
-
+  });
 
 
 

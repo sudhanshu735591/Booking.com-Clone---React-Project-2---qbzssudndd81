@@ -12,6 +12,16 @@ const UserContextProvider = ( {children} )=>{
     const [handleFlagCard, setHandleFlagCard] = useState(false);
 
     const [globalDate, setGlobalDate] = useState();
+
+    const [startWeekDay, setStartWeekDay] = useState("Day");
+
+    const [endWeekDay, setEndWeekDay] = useState("Day"); 
+
+    const [startDate, setStartDate] = useState("Check-in Date");
+
+    const [endDate, setEndDate] = useState("Check-out-Date");
+    
+    
     
 
     return(
@@ -20,7 +30,11 @@ const UserContextProvider = ( {children} )=>{
             adultCount, setAdultCount,
             roomCount, setRoomCount,
             handleFlagCard, setHandleFlagCard,
-            globalDate, setGlobalDate
+            globalDate, setGlobalDate,
+            startWeekDay, setStartWeekDay,
+            endWeekDay, setEndWeekDay,
+            startDate, setStartDate,
+            endDate, setEndDate,
         }}>{children}</UserContext.Provider>
     )
 }

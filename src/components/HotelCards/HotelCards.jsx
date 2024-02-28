@@ -1,5 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
-import Navbar from "../Navbar/navbar";
+import { useEffect, useState } from "react";
 import "./HotelCards.css";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import HomePageFooter from "../Footer/HomePageFooter/HomePageFooter";
@@ -7,7 +6,6 @@ import Button from "../Button/Button";
 import DropDown from "../DropDown/DropDown";
 import CheckBox from "../CheckBox/CheckBox";
 import TopNav from "../Navbar/TopNav/TopNav";
-import FormData from "../Navbar/FormData/FormData";
 
 function HotelCards() {
 
@@ -165,7 +163,6 @@ function HotelCards() {
 
     return (
         <div>
-            {/* <Navbar /> */}
             <div className="ekdmkemd">
             <TopNav/>
             </div>
@@ -330,7 +327,6 @@ function HotelCards() {
                                             <p className="font-normal jdeeijdi">Located 820 feet from the new Digha sea beach, this OYO hotel is equipped with an in-house restaurant and free breakfast is served to the guests. </p>
 
                                             <div className="mt-3 flex justify-end">
-
                                                 <Button className="eheuene" text="See Availability"></Button>
                                             </div>
                                         </div>

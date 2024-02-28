@@ -11,6 +11,9 @@ import FormDetails from "./CheckOutPage/FormDetails/FormDetails";
 import PaymentDetails from "./CheckOutPage/PaymentSection/PaymentSection";
 import FlightHome from "./FlightSection/FlightHome/FlightHome";
 import TicketType from "./FlightSection/TicketType/TicketType";
+import Flying from "./FlightSection/FlyingSection/Flying";
+import FlightCheckOut from "./FlightSection/CheckOutDetails/FlightCheckOutDetails";
+import FlightPayment from "./FlightSection/FlightPayment/FlightPayment";
 
 function App() {
   return (
@@ -26,6 +29,10 @@ function App() {
         <Route path="/paymentsection" element ={<PaymentDetails/>}/>
         <Route path="FlightSection" element={<FlightHome/>}/>
         <Route path="TicketType" element={<TicketType/>}/>
+        <Route path="/flying" element={<Flying/>}/>
+
+        <Route path="/FlightCheckOut" element={<FlightCheckOut/>}/>
+        <Route path="/FlightPayment" element={<FlightPayment/>}/>
 
       </Routes>
   );

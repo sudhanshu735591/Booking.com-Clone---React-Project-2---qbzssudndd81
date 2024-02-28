@@ -35,9 +35,8 @@ function SingleInfo() {
             </div>
 
             <div>
-                <HotelFacilities/>
+                <HotelFacilities/> 
             </div>
-
 
             <div>
                 <HomePageFooter/>
