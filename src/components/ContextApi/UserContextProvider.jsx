@@ -11,8 +11,6 @@ const UserContextProvider = ( {children} )=>{
 
     const [handleFlagCard, setHandleFlagCard] = useState(false);
 
-    const [globalDate, setGlobalDate] = useState();
-
     const [startWeekDay, setStartWeekDay] = useState("Day");
 
     const [endWeekDay, setEndWeekDay] = useState("Day"); 
@@ -20,9 +18,10 @@ const UserContextProvider = ( {children} )=>{
     const [startDate, setStartDate] = useState("Check-in Date");
 
     const [endDate, setEndDate] = useState("Check-out-Date");
-    
-    
-    
+
+    const [startYear, setStartYear] = useState("Year");
+
+    const [endYear, setEndYear] = useState("Year");
 
     return(
         <UserContext.Provider value={{
@@ -30,11 +29,12 @@ const UserContextProvider = ( {children} )=>{
             adultCount, setAdultCount,
             roomCount, setRoomCount,
             handleFlagCard, setHandleFlagCard,
-            globalDate, setGlobalDate,
             startWeekDay, setStartWeekDay,
             endWeekDay, setEndWeekDay,
             startDate, setStartDate,
             endDate, setEndDate,
+            startYear, setStartYear,
+            endYear, setEndYear,
         }}>{children}</UserContext.Provider>
     )
 }

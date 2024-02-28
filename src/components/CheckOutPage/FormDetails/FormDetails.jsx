@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Navbar from "../../Navbar/navbar";
 import TopNav from "../../Navbar/TopNav/TopNav";
 import CheckOutHotel from "../CheckOutHotel/CheckOutHotel";
@@ -5,9 +6,15 @@ import HotelDetails from "../HotelDetails/HotelDetails";
 import PriceDetails from "../PriceDetails/PriceDetails";
 import UserDetails from "../UserDetails/UserDetails";
 import "./FormDetails.css";
+import { useParams } from "react-router";
 
 
 function  FormDetails() {
+
+    const {id} = useParams();
+
+ 
+
     return (
         <div>
             <div className="bg-indigo-800 p-3">
@@ -28,7 +35,7 @@ function  FormDetails() {
                     </div>
 
                     <div className="border-2 p-3">
-                        <UserDetails/>
+                        <UserDetails id = {id}/>
                     </div>
                 </div>
             </div>

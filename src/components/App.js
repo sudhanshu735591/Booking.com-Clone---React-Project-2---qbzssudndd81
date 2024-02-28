@@ -26,7 +26,7 @@ function App() {
         <Route path="/Singleinfo/:id" element={<SingleInfo/>}/>
         <Route path = "/FavoriteList" element= {<FavoriteList/>}/>
         <Route path = "/FormDetails/:id" element= {<FormDetails/>}/>
-        <Route path="/paymentsection" element ={<PaymentDetails/>}/>
+        <Route path="/paymentsection/:id" element ={<PaymentDetails/>}/>
         <Route path="FlightSection" element={<FlightHome/>}/>
         <Route path="TicketType" element={<TicketType/>}/>
         <Route path="/flying" element={<Flying/>}/>

@@ -4,8 +4,6 @@ import { airLines, arrives, departs } from '../../Constant/Constant';
 import FlightDetail from '../FlightDetails/FlightDetails';
 import FooterFlight from './FlightSearchFooter/FlightSearchFooter';
 import TopNav from '../Navbar/TopNav/TopNav';
-import Stays from '../Navbar/BottomNav/Stays/Stays/Stays';
-import Flight from '../Navbar/BottomNav/Stays/Stays/Flight/Flight';
 
 
 function Flightsearch() {

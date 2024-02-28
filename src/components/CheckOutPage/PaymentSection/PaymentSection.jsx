@@ -1,12 +1,19 @@
+import { useParams } from "react-router";
 import Button from "../../Button/Button";
 import TopNav from "../../Navbar/TopNav/TopNav";
 import CheckOutHotel from "../CheckOutHotel/CheckOutHotel";
 import HotelDetails from "../HotelDetails/HotelDetails";
 import PriceDetails from "../PriceDetails/PriceDetails";
+import { useEffect, useState } from "react";
 
 
 
 function PaymentDetails() {
+
+    // const {id} = useParams();
+
+    
+
     return (
         <div >
             <div className="bg-blue-800 p-4">

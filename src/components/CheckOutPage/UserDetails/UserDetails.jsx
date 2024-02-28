@@ -2,18 +2,42 @@ import { useNavigate } from "react-router";
 import HotelCheckoutAddToYourStayComponent from "../../AddToYourStay/AddToYourStay";
 import Button from "../../Button/Button";
 import HotelArrival from "../../HotelArrivalComponent/HotelArrival";
+import { useState } from "react";
 
 
-function UserDetails() {
+function UserDetails(props) {
+    const {id} = props;
 
     const navigate = useNavigate();
 
     function handleButtonClick(){
-        navigate("/paymentsection")
+        
+        const isEveryKeyFilled = Object.values(userDetails).every(value=>value!="");
+        
+        if(isEveryKeyFilled){
+            navigate(`/paymentsection/${id}`)
+        }
+
     }
-    
+
+    const [userDetails, setUserDetails] = useState({
+        firstName : "",
+        lastName : "",
+        email : "",
+        phone : "",
+    });
+
+    function onChangeHandler(e){
+        let updatedDetails = {...userDetails    };
+
+        updatedDetails[e.target.name] = e.target.value;
+
+        setUserDetails(updatedDetails);
+        console.log("updatedDetails", updatedDetails);
+    }
+
     return (
-        <div>
+        <form>
             <div className="font-bold text-xl">Enter your details</div>
 
             <div className="flex items-center mt-4 gap-3 border-2 p-3 bg-[#f5f5f5] rounded-xl">
@@ -24,28 +48,28 @@ function UserDetails() {
 
             <div className="flex w-fit gap-3 flex-wrap items-center mt-3">
                 <div className="flex flex-col">
-                    <label className="text-red-800 font-bold" for="First Name *">Enter your first name *</label>
+                    <label className="text-red-800 font-bold" style={{color:userDetails.firstName?"black":"darkred"}} for="First Name *">{userDetails.firstName?"First Name *":"Enter your first name *"}</label>
                     <span className="flex border-2 bg-red-700">
-                        <input type="text" className="border-[1px] p-1 w-[300px]" />
-                        <div className="pl-2 pr-2 flex justify-center items-center text-white">✘
+                        <input required onChange={onChangeHandler} name= "firstName" type="text" className="border-[1px] p-1 w-[300px] " />
+                        <div className="pl-2 pr-2 flex justify-center items-center text-white">{userDetails.firstName?"✓":"✘"}
                         </div>
                     </span>
                 </div>
 
                 <div className="flex flex-col">
-                    <label className="text-red-800 font-bold" for="First Name *">Enter your Last name *</label>
+                    <label style={{color:userDetails.lastName?"black":"darkred"}} className="text-red-800 font-bold" for="First Name *">{userDetails.lastName?"Last Name *":"Enter your Last name *"}</label>
                     <span className="flex border-2 bg-red-700">
-                        <input type="text" className="border-[1px] p-1 w-[300px] " />
-                        <div className="pl-2 pr-2 flex justify-center items-center text-white">✘
+                        <input required onChange={onChangeHandler} type="text" name = "lastName" className="border-[1px] p-1 w-[300px] " />
+                        <div className="pl-2 pr-2 flex justify-center items-center text-white">{userDetails.lastName?"✓":"✘"}
                         </div>
                     </span>
                 </div>
 
                 <div className="flex flex-col">
-                    <label className="text-red-800 font-bold" for="First Name *">Enter your email address *</label>
+                    <label style={{color:userDetails.email?"black":"darkred"}} className="text-red-800 font-bold" for="First Name *">{userDetails.email?"Email *":"Enter your Email *"}</label>
                     <span className="flex border-2 bg-red-700">
-                        <input type="text" className="border-[1px] p-1 w-[300px]" />
-                        <div className="pl-2 pr-2 flex justify-center items-center text-white">✘
+                        <input required onChange={onChangeHandler} type="text" name="email" className="border-[1px] p-1 w-[300px]" />
+                        <div className="pl-2 pr-2 flex justify-center items-center text-white">{userDetails.email?"✓":"✘"}
                         </div>
                     </span>
                 </div>
@@ -53,16 +77,16 @@ function UserDetails() {
 
 
             <div className="flex flex-col">
-                <label className="text-red-800 font-bold" for="First Name *">Enter your phone number</label>
+                <label style={{color:userDetails.phone?"black":"darkred"}} className="text-red-800 font-bold" for="First Name *">{userDetails.phone?"Phone *":"Enter your Phone Number *"}</label>
                 <span className="flex border-2 bg-red-700 w-fit">
-                    <input type="number" className="border-[1px] p-1 w-[300px]"/>
-                    <div className="pl-2 pr-2 flex justify-center items-center text-white">✘</div>
+                    <input required onChange={onChangeHandler} name="phone" type="number" className="border-[1px] p-1 w-[300px]"/>
+                    <div className="pl-2 pr-2 flex justify-center items-center text-white">{userDetails.phone?"✓":"✘"}</div>
                 </span>
                 <p className="font-normal text-sm">Needed by the property to validate your booking</p>
             </div>
 
             <div className="flex mt-4 gap-2">
-                <input type="radio"/>
+                <input required type="radio"/>
                 <p className="font-normal">Yes, I want free paperless confirmation (recommended)</p>
             </div>
 
@@ -78,7 +102,7 @@ function UserDetails() {
             <div className="mt-10 flex justify-end rounded">
                 <Button onClick = {handleButtonClick} text = "Next: Find details >" className = "rounded-md bg-blue-700 p-3 pl-8 pr-8 text-white"/>
             </div>
-        </div>
+        </form>
     )
 }
 

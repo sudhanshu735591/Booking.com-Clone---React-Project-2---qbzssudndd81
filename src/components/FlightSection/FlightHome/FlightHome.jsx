@@ -30,7 +30,6 @@ function FlightHome() {
         <div className='relative flex gap-2 justify-start items-start p-4 h-8'>
             <div>
                 <p className='hover:bg-zinc-100 hover:cursor-pointer p-3' onClick={()=>{handleColor(1)}} style={{color:color==1?"blue":"black"}}>International</p>
-                
             </div>
             <div>
                 <p className='hover:bg-zinc-100 hover:cursor-pointer p-3' onClick={()=>{handleColor(2)}} style={{color:color==2?"blue":"black"}}>Domestic</p> 
