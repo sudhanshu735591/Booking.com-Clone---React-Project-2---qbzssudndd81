@@ -15,7 +15,6 @@ function CalenderApp() {
     }
   ]);
 
-
   const { setStartWeekDay } = useContext(UserContext);
 
   const { setStartDate} = useContext(UserContext);

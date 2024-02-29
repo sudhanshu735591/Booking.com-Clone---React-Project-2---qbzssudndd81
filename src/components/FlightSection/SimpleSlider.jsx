@@ -48,11 +48,11 @@ export default function SimpleSlider({arrValue}) {
     <Slider {...settings} className="mt-4">
       {
         arrValue.map((i)=>{
-          return(<div className="flex flex-col gap-4" onClick={handleClick}>
+          return(<div className="flex flex-col gap-4 cursor-pointer" onClick={handleClick}>
             <div style={{display:"flex", gap:"20px"}}>
               <img src={i.img} className="rounded w-[300px] h-40 sm:mr-5" style={{ marginRight: "20px" }}/>
             </div>
-            <h2 className="text-left ml-1 font-semibold">{i.location}</h2>
+            <h2 className="text-left ml-1 font-semibold">{i.source} to {i.destination}</h2>
             <p className="text-left ml-1 text-[12px]">{i.date}</p>
           </div>)
         })

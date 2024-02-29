@@ -4,10 +4,12 @@ import { domestic } from '../Constant/Demestic';
 import { international } from '../Constant/International';
 import ImageList from './ImageList/ImageList';
 import FlightFeatures from '../FlightFeatures/FlightFeatures';
-import Navbar from '../../Navbar/navbar';
 import FAQ from '../FAQ\'S/faq';
 import FooterFlight from '../../FlightSearcPage/FlightSearchFooter/FlightSearchFooter';
 import { trendingCity } from '../Constant/trendingCity';
+import TopNav from '../../Navbar/TopNav/TopNav';
+import Stays from '../../Navbar/BottomNav/Stays/Stays/Stays';
+import Flight from '../../Navbar/BottomNav/Stays/Stays/Flight/Flight';
 
 function FlightHome() {
     const [area,setArea] = useState(true);
@@ -22,9 +24,19 @@ function FlightHome() {
         setArea(val);
     }
 
-  return (<>
-  <Navbar/>
-    <div className="m-auto w-[70%] mt-4 lg:w-[96%]">
+  return (
+  <>
+    <div className='bg-blue-800 p-3'>
+        <TopNav/>
+        <div className='flex'>
+            <Stays/>
+            <Flight/>
+        </div>
+       
+        
+    </div>
+
+    <div className="m-auto w-[70%] mt-10 lg:w-[96%]">
         <h1 className='font-bold text-xl text-left'>Popular flights near you</h1>
         <h4 className='text-left'>Find deals on domestic and international flights</h4>
         <div className='relative flex gap-2 justify-start items-start p-4 h-8'>
@@ -39,6 +51,8 @@ function FlightHome() {
         <div className='border-b-2 border-zinc-200 mt-[2rem]'></div>
 
         <SimpleSlider arrValue = {color==1?international:domestic}/>
+
+        
         <div className='mt-16'>
             <h1 className='font-bold text-xl text-left'>Trending Cities</h1>
             <h4 className='text-left'>Book flights to a destination popular with travellers from India</h4>
