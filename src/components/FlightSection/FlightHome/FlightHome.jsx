@@ -12,14 +12,15 @@ import Stays from '../../Navbar/BottomNav/Stays/Stays/Stays';
 import Flight from '../../Navbar/BottomNav/Stays/Stays/Flight/Flight';
 
 function FlightHome() {
+    
     const [area,setArea] = useState(true);
     
     const [color,setColor] = useState(1);
 
-
     const handleColor =(val)=>{
         setColor(val);
     }
+
     const handleArea =(val)=>{
         setArea(val);
     }
@@ -28,13 +29,16 @@ function FlightHome() {
   <>
     <div className='bg-blue-800 p-3'>
         <TopNav/>
-        <div className='flex'>
+        <div className='flex ml-[14%] gap-3'>
             <Stays/>
             <Flight/>
         </div>
-       
+
         
     </div>
+
+
+
 
     <div className="m-auto w-[70%] mt-10 lg:w-[96%]">
         <h1 className='font-bold text-xl text-left'>Popular flights near you</h1>
