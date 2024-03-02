@@ -3,7 +3,7 @@ import "./flightDetails.css";
 
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import { json, useLocation, useNavigate } from 'react-router';
+import {  useLocation, useNavigate } from 'react-router';
 import FlightCodeArray from '../FlightSection/Constant/FlightStationCode';
 
 function FlightDetail(props) {
@@ -14,7 +14,7 @@ function FlightDetail(props) {
 
   const [open, setOpen] = useState(false);
 
-  const location = useLocation();
+  const location = useLocation() || {};
 
   const [resData, setResData] = useState();
 
@@ -30,6 +30,10 @@ function FlightDetail(props) {
 
   const [modalMin, setModalMin] = useState();
 
+  console.log("location.state", location);
+  
+  
+
   const apiData = async () => {
     let data = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/flight?search={"source":${JSON.stringify(location.state.source)},"destination":${JSON.stringify(location.state.destination)}}&day=Mon`, {
       method: "GET",
@@ -39,15 +43,13 @@ function FlightDetail(props) {
     })
 
     let res = await data?.json();
-    console.log("res", res.data.flights);
+    // console.log("res", res.data.flights);
     setResData(res?.data?.flights);
   }
 
   useEffect(() => {
     apiData();
   }, []);
-
-
 
 
   useEffect(() => {
@@ -81,9 +83,6 @@ function FlightDetail(props) {
     setSingleFlightId(id);
   };
 
-  
-
-
   const singleFlightApi = async ()=>{
     let data = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/flight/${singleFlightId}`,{
       method:"GET",
@@ -93,7 +92,6 @@ function FlightDetail(props) {
     })
 
     let res = await data?.json();
-    console.log("Single", res.data);
     setSingleFlightData(res.data);
 
     FlightCodeArray.map((val)=>{

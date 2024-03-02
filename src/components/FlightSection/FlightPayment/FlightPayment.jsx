@@ -1,19 +1,49 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Button from '../../Button/Button';
 import TopNav from '../../Navbar/TopNav/TopNav';
+import UserContext from '../../ContextApi/userContext';
+import FlightCodeArray from '../Constant/FlightStationCode';
 
 function FlightPayment() {
     const navigate = useNavigate();
+
+    const location = useLocation() || {};
+
+    const {startCity, endCity, phoneNumber, email, gender, firstName, lastName, ticketPrice, taxes, flightFare, flexible}  = location.state || {};
+
+    const {startDate} = useContext(UserContext);
+    const {endDate} = useContext(UserContext);
+    const {startWeekDay} = useContext(UserContext);
+
+    const {endWeekDay} = useContext(UserContext);
+
     const handleBack = ()=>{
-        navigate('/FlightPayment')
-    }
-    const handleNext = ()=>{
-        alert("hello")
-    }
+      let fromStation="";
+      let toStation="";
+
+      FlightCodeArray.map((val) => {
+          if (val.city === startCity) {
+              fromStation = val.code
+          }
+          if (val.city === endCity) {
+              toStation = val.code;
+          }
+      });
+
+      navigate('/FlightCheckOut', { state: { startCity: startCity, endCity: endCity , ticketPrice: ticketPrice, taxes:taxes , flightFare:flightFare, flexible:flexible} })
+  }
+
+  const handleNext = ()=>{
+      alert("hello")
+  }
+
+
   return (
     <div>
-      <TopNav/>
+      <div className='bg-blue-800 p-3'>
+        <TopNav/>
+      </div>
     <div className='bg-gray-100 p-8'>
     <div className='flex items-center justify-between w-[70%] m-auto md:w-[100%]'>
           <div className='rounded-full h-6 w-6 bg-[#006ce4]'>
@@ -36,8 +66,8 @@ function FlightPayment() {
       </div>
     </div>
     <div className='w-[75%] m-auto p-10 md:w-[100%]'>
-      <p className='text-left my-4 text-sm'>Round trip · 1 traveller · Mon 26 Feb - Mon 4 Mar</p>
-      <h1 className='text-left my-4 font-bold text-2xl'>Raipur to Bangalore</h1>
+      <p className='text-left my-4 text-sm'>Round trip · 1 traveller · {startWeekDay} {startDate} - {endWeekDay} {endDate}</p>
+      <h1 className='text-left my-4 font-bold text-2xl'>{startCity} to {endCity}</h1>
       <p className='text-left my-2 font-semibold'>Check and pay</p>
 
       {/* cards */}
@@ -47,7 +77,7 @@ function FlightPayment() {
                 <section className='flex gap-6 border rounded p-4 items-center'>
                     <img src="https://r-xx.bstatic.com/data/airlines_logo/6E.png" alt="plane" width={"40px"} height={"20px"}/>
                     <p className='flex gap-2 flex-col'>
-                        <span className='text-sm font-bold text-left'>Raipur (RPR) to Mumbai (BOM)</span>
+                        <span className='text-sm font-bold text-left'>{startCity} to {endCity}</span>
                         <span className='text-sm text-left'>Sun 25 Feb · 21:00 - Sun 25 Feb · 23:05</span>
                         <span className='text-sm text-left'>Direct · 2h 05m · Economy</span>
                     </p>
@@ -55,7 +85,7 @@ function FlightPayment() {
                         <button className='text-blue-400 px-3 py-2 rounded hover:bg-blue-100'>View flight details</button>
                     </div>
                 </section>
-                <section className='flex gap-6 border rounded p-4 items-center'>
+                {/* <section className='flex gap-6 border rounded p-4 items-center'>
                     <img src="https://r-xx.bstatic.com/data/airlines_logo/6E.png" alt="plane" width={"40px"} height={"20px"}/>
                     <p className='flex gap-2 flex-col'>
                         <span className='text-sm font-bold text-left'>Raipur (RPR) to Mumbai (BOM)</span>
@@ -65,12 +95,12 @@ function FlightPayment() {
                     <div className='pl-20'>
                         <button className='text-blue-400 px-3 py-2 rounded hover:bg-blue-100'>View flight details</button>
                     </div>
-                </section>
+                </section> */}
             </div>
             <div className='border rounded p-4'>
                 <p className='text-sm font-bold py-2 text-left'>Contact details</p>
-                <p className='text-sm text-left'>+916263483783</p>
-                <p className='text-sm text-left'>devipurnima26899@gmail.com</p>
+                <p className='text-sm text-left'>+91 {phoneNumber}</p>
+                <p className='text-sm text-left'>{email}</p>
             </div>
             <div className='border rounded p-4'>
                 <p className='text-sm font-bold py-2 text-left'>Traveller details</p>
@@ -79,8 +109,8 @@ function FlightPayment() {
                     <path d="M16.5 6a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0zM18 6A6 6 0 1 0 6 6a6 6 0 0 0 12 0zM3 23.25a9 9 0 1 1 18 0 .75.75 0 0 0 1.5 0c0-5.799-4.701-10.5-10.5-10.5S1.5 17.451 1.5 23.25a.75.75 0 0 0 1.5 0z" />
                 </svg>
                 <p className='flex flex-col gap-2'>
-                    <span>Purnima Dewangan</span>
-                    <p className='text-sm text-left'>Adult . Female</p>
+                    <span>{firstName} {lastName}</span>
+                    <p className='text-sm text-left'>Adult . {gender}</p>
                 </p>  
                 </p>
             </div>
@@ -167,7 +197,7 @@ function FlightPayment() {
                 </div>
                 <div>
                 <label>Cardholder's Name*</label>
-                <input type='text' required value="Purnima Dewangan" className='w-[95%] h-10 p-4  border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                <input type='text' required value={`${firstName?firstName:""} ${lastName?lastName:""}`}  className='w-[95%] h-10 p-4  border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
                 
                 </div>
                <div className='flex flex-col'>
@@ -200,28 +230,28 @@ function FlightPayment() {
             <div className='w-[35%] md:w-[100%] md:m-0'>  
                   <div className='flex justify-between'>
                       <span className='font-medium'>Ticket (1 adult)</span>
-                      <span className='font-medium'>INR14,457.64</span>
+                      <span className='font-medium'>INR {ticketPrice}</span>
                   </div>
                   <div className='flex justify-between'>
                       <span>Flight fare</span>
-                      <span>INR15,457.6</span>
+                      <span>INR {flightFare}</span>
                   </div>
                   <div className='flex justify-between'>
                       <span>Taxes and charges</span>
-                      <span>INR5,457.6</span>
+                      <span>INR {taxes}</span>
                   </div>
                   {location.state?
                   <div className='flex justify-between'>
                       <span>Flexible ticket</span>
-                      <span>{location.state}</span>
+                      <span>INR {flexible}</span>
                   </div>:
                   <div className='hidden'>
                   <span>Flexible ticket</span>
-                  <span>INR1,943.21</span>
+                  <span>INR {flexible}</span>
               </div>}  
                   <div className='flex justify-between my-4'>
                       <span className='font-bold text-xl'>Total</span>
-                      <span className='font-bold text-xl'>INR25,457.6</span>
+                      <span className='font-bold text-xl'>INR {ticketPrice+flightFare+taxes+flexible}</span>
                   </div>  
                   <p className='text-left'>Includes taxes and charges</p>
                   

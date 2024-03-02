@@ -148,9 +148,6 @@ function Flightsearch() {
             <span onClick={(e) => { handleSelect(3,e) }} className={3 == selectedOption ? "changeClass" : "prevClass"}>Fastest</span>
           </div>
           <FlightDetail textFlag = {textFlag}/>
-          {/* <FlightDetail />
-          <FlightDetail />
-          <FlightDetail /> */}
         </div>
       </div>
       <FooterFlight />

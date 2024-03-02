@@ -5,22 +5,51 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import TopNav from "../../Navbar/TopNav/TopNav";
+import FlightCodeArray from "../Constant/FlightStationCode";
 
 
 const FlightCheckOut = ()=>{
 
     const location = useLocation() || {};
 
-    const {firstName, lastName,  startCity, endCity, ticketPrice, flightFare, taxes, flexible} = location.state || {}
+    const {firstName, gender, lastName,  startCity, endCity, ticketPrice, flightFare, taxes, flexible,phoneNumber,email} = location.state || {}
 
     const navigate = useNavigate();
 
 
     const handleBack = ()=>{
-        navigate('/FlightPayment');
+        let fromStation="";
+        let toStation="";
+
+        FlightCodeArray.map((val) => {
+            if (val.city === startCity) {
+                fromStation = val.code
+            }
+            if (val.city === endCity) {
+                toStation = val.code;
+            }
+        })
+        navigate('/flying', { state: { startCity: startCity, endCity: endCity, ticketPrice:ticketPrice, flightFare:flightFare,taxes:taxes, flexible: flexible } });
     }
+
+    
     const handleNext = ()=>{
-        navigate('/FlightPayment')
+        navigate('/FlightPayment',{
+            state:{
+                startCity : startCity,
+                endCity : endCity,
+                phoneNumber:phoneNumber,
+                email:email,
+                gender:gender,
+                firstName:firstName,
+                lastName:lastName,
+                
+                ticketPrice:ticketPrice,
+                flightFare:flightFare,
+                taxes:taxes,
+                flexible:flexible,
+            }
+        })
     }
     return(
         <div>

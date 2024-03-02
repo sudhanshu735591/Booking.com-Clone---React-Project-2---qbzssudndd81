@@ -4,6 +4,7 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import TopNav from '../../Navbar/TopNav/TopNav';
 import UserContext from '../../ContextApi/userContext';
+import FlightCodeArray from '../Constant/FlightStationCode';
 
 function Flying() {
     const navigate = useNavigate();
@@ -30,10 +31,23 @@ function Flying() {
 
     const [phoneNumber, setPhoneNumber] = useState();
 
+    console.log("loo", startCity);
+
 
     
     const handleBack = ()=>{
-        navigate('/ticketType');
+        let fromStation="";
+        let toStation="";
+
+        FlightCodeArray.map((val) => {
+            if (val.city === startCity) {
+                fromStation = val.code
+            }
+            if (val.city === endCity) {
+                toStation = val.code;
+            }
+        })
+        navigate('/ticketType',{ state: { source: fromStation, destination: toStation , ticketPrice: ticketPrice} });
     }
 
     const handleNext = ()=>{
@@ -50,6 +64,8 @@ function Flying() {
                 flightFare: flightFare,
                 taxes: taxes,
                 flexible:flexible,
+                phoneNumber:phoneNumber,
+                email:email,
             }})
         }
     }
@@ -166,7 +182,7 @@ function Flying() {
                                   
                         <img src='https://t-cf.bstatic.com/design-assets/assets/v3.109.0/images-flags/In@3x.png' className='rounded-full w-8 h-8'/>
                         
-                        <input onChange={(e)=>setPhoneNumber(e.target.value)} type='tel' value={`${phoneNumber}`} required className='w-[61%] h-10 p-4 text-blue-600 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                        <input onChange={(e)=>setPhoneNumber(e.target.value)} type='tel' value={`${phoneNumber?phoneNumber :""}`} required className='w-[61%] h-10 p-4 text-blue-600 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
 
                     </div>
                 
