@@ -1,29 +1,64 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import TopNav from '../../Navbar/TopNav/TopNav';
+import UserContext from '../../ContextApi/userContext';
 
 function Flying() {
     const navigate = useNavigate();
 
+    const {startWeekDay} = useContext(UserContext);
+
+    const {endWeekDay} = useContext(UserContext);
+
+    const {startDate} = useContext(UserContext);
+
+    const {endDate} = useContext(UserContext);
+
     const location = useLocation();
 
-    const {startCity, endCity} = location.state || {};  
+    const {startCity, endCity, ticketPrice,flightFare , taxes, flexible} = location.state || {};  
 
-    console.log("location is", startCity);
+    const [firstName, setFirstName] =  useState();
+
+    const [lastName, setLastName] = useState();
+
+    const [gender, setGender] = useState();
+
+    const [email, setEmail] = useState();
+
+    const [phoneNumber, setPhoneNumber] = useState();
+
+
     
     const handleBack = ()=>{
         navigate('/ticketType');
     }
-    const handleNext = ()=>{
-        if(location.state)
-            navigate('/FlightCheckOut',{ state: "INR1,943.21" });
-        else
-        navigate('/FlightCheckOut',{ state: "" });
 
+    const handleNext = ()=>{
+        if(firstName && lastName && gender && email && phoneNumber){
+            navigate("/FlightCheckOut", {state: {
+                startCity: startCity,
+                endCity: endCity,
+                firstName : firstName,
+                lastName :lastName,
+                gender : gender,
+                email : email,
+                phoneNumber, phoneNumber,
+                ticketPrice:ticketPrice,
+                flightFare: flightFare,
+                taxes: taxes,
+                flexible:flexible,
+            }})
+        }
     }
+
+
     const[open,setOpen] = useState(false);
+
+
+
     const openModal = () => {
         setOpen(true);
     };
@@ -31,13 +66,20 @@ function Flying() {
     const closeModal = () => {
         setOpen(false);
     };
+
+
+
     const handleSubmit = (e)=>{
         e.preventDefault();
         setOpen(false)
     }
+
+
   return (
     <div>
-        <TopNav/>
+        <div className='bg-blue-800 p-3'>
+            <TopNav/>
+        </div>
     <div className='bg-gray-100 p-4'>
       <div className='flex items-center justify-between w-[70%] m-auto md:w-[100%]'>
           <div className='rounded-full h-6 w-6 bg-[#006ce4]  text-neutral-50'>
@@ -57,7 +99,7 @@ function Flying() {
      
     </div>
     <div className='w-[75%] m-auto p-10 md:w-[100%]'>
-      <p className='text-left my-4 text-sm'>Round trip · 1 traveller · Mon 26 Feb - Mon 4 Mar</p>
+      <p className='text-left my-4 text-sm'>Round trip · 1 traveller · {startWeekDay} {startDate} - {endWeekDay} {endDate}</p>
       <h1 className='text-left my-4 font-bold text-2xl'>{startCity} to {endCity}</h1>
       <p className='text-left my-4 font-semibold'>Who's flying?</p>
       {/* cards */}
@@ -80,14 +122,14 @@ function Flying() {
                             <label className='text-left'>
                             First names*
                             </label>
-                            <input type='text' required className='w-[95%] h-10 p-4  border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                            <input onChange={(e)=>setFirstName(e.target.value)} type='text' required className='w-[95%] h-10 p-4  border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
                         
                         </div>
                         <div className='flex flex-col'>
                             <label className='text-left'>
                             Last names*
                             </label>
-                            <input type='text' required className='w-[95%] h-10 p-4 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                            <input onChange={(e)=>setLastName(e.target.value)} type='text' required className='w-[95%] h-10 p-4 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
                     
                         </div>
                     
@@ -96,7 +138,7 @@ function Flying() {
                         <label className='text-left'>
                         Gender specified on your travel document*
                         </label>
-                        <input type='email' required className='w-[98%] h-10 p-4 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                        <input onChange={(e)=>setGender(e.target.value)} type='text' required className='w-[98%] h-10 p-4 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
                     
                     </div>
                     <div className='border-b border-gray-400 pt-2'></div>
@@ -111,20 +153,20 @@ function Flying() {
                 <div className='border rounded p-4 flex flex-col gap-y-3'>
                     <div className='flex flex-col'>
                     <label className='text-left'>
-                         Contact email*
+                        Contact email*
                     </label>
-                    <input type='email' required className='w-[70%] h-10 p-4 text-blue-600 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                    <input onChange={(e)=>setEmail(e.target.value)} type='email' required className='w-[70%] h-10 p-4 text-blue-600 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
                 
                     </div>
                     <div className='flex flex-col'>
                     <label className='text-left'>
-                         Phone number*
+                        Phone number*
                     </label>
                     <div className='flex gap-3 justify-start items-center'>
                                   
                         <img src='https://t-cf.bstatic.com/design-assets/assets/v3.109.0/images-flags/In@3x.png' className='rounded-full w-8 h-8'/>
                         
-                        <input type='tel' value="+91" required className='w-[61%] h-10 p-4 text-blue-600 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                        <input onChange={(e)=>setPhoneNumber(e.target.value)} type='tel' value={`${phoneNumber}`} required className='w-[61%] h-10 p-4 text-blue-600 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
 
                     </div>
                 
@@ -136,20 +178,20 @@ function Flying() {
             <div className='w-[40%] md:w-[100%] md:m-0'>  
                   <div className='flex justify-between'>
                       <span className='font-medium'>Ticket (1 adult)</span>
-                      <span className='font-medium'>INR14,457.64</span>
+                      <span className='font-medium'>INR {ticketPrice}</span>
                   </div>
                   <div className='flex justify-between'>
                       <span>Flight fare</span>
-                      <span>INR15,457.6</span>
+                      <span>INR {flightFare}</span>
                   </div>
                   <div className='flex justify-between'>
                       <span>Taxes and charges</span>
-                      <span>INR5,457.6</span>
+                      <span>INR {taxes}</span>
                   </div>
                   {location.state?
                   <div className='flex justify-between'>
                       <span>Flexible ticket</span>
-                      <span>{startCity}</span>
+                      <span>INR {flexible}</span>
                   </div>:
                   <div className='hidden'>
                   <span>Flexible ticket</span>
@@ -157,7 +199,7 @@ function Flying() {
               </div>}  
                   <div className='flex justify-between my-4'>
                       <span className='font-bold text-xl'>Total</span>
-                      <span className='font-bold text-xl'>INR25,457.6</span>
+                      <span className='font-bold text-xl'>INR {ticketPrice + flightFare + taxes  + flexible}</span>
                   </div>  
                   <p className='text-left'>Includes taxes and charges</p>
                   

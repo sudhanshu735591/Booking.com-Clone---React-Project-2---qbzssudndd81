@@ -24,11 +24,6 @@ function TicketType() {
 
     const [endCity, setEndCity] = useState();
 
-  
-
-
-    
-
 
     const handleBack = ()=>{
         navigate('/FlightSearchPage');
@@ -37,13 +32,17 @@ function TicketType() {
     
       const location = useLocation();
 
-      console.log("location", location);
+      console.log("location", location.state.ticketPrice);
 
       const handleNext = () => {
         if(!flag){
             navigate("/flying", { state:{
                 startCity:startCity,
                 endCity:endCity,
+                ticketPrice: location.state.ticketPrice,
+                flightFare : 1233,
+                taxes : 1033,
+                flexible : 1943.21,
             } });
         }
         
@@ -51,6 +50,10 @@ function TicketType() {
             navigate("/flying",  { state:{
                 startCity:startCity,
                 endCity:endCity,
+                ticketPrice: location.state.ticketPrice,
+                flightFare : 1233,
+                taxes : 1033,
+                flexible : 0,
             } });
         }
 

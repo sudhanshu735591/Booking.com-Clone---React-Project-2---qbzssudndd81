@@ -5,9 +5,17 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import TopNav from "../../Navbar/TopNav/TopNav";
+
+
 const FlightCheckOut = ()=>{
-    const location = useLocation();
+
+    const location = useLocation() || {};
+
+    const {firstName, lastName,  startCity, endCity, ticketPrice, flightFare, taxes, flexible} = location.state || {}
+
     const navigate = useNavigate();
+
+
     const handleBack = ()=>{
         navigate('/FlightPayment');
     }
@@ -26,9 +34,9 @@ const FlightCheckOut = ()=>{
         </div>
         <div className='w-[75%] m-auto p-10 md:w-[100%]'>
           <p className='text-left my-4 text-sm'>Round trip · 1 traveller · Mon 26 Feb - Mon 4 Mar</p>
-          <h1 className='text-left my-4 font-bold text-2xl'>Raipur to Bangalore</h1>
+          <h1 className='text-left my-4 font-bold text-2xl'>{startCity} to {endCity}</h1>
           <p className='text-left my-2 font-semibold'>Baggage Allowance</p>
-          <p className='text-left mt-2 font-semibold'>Purnima Dewangan</p>
+          <p className='text-left mt-2 font-semibold'>{firstName} {lastName}</p>
           <p className='text-left text-sm'>On each flight</p>
 
           {/* cards */}
@@ -70,20 +78,20 @@ const FlightCheckOut = ()=>{
                 <div className='w-[40%] md:w-[100%] md:m-0'>  
                       <div className='flex justify-between'>
                           <span className='font-medium'>Ticket (1 adult)</span>
-                          <span className='font-medium'>INR14,457.64</span>
+                          <span className='font-medium'>INR {ticketPrice}</span>
                       </div>
                       <div className='flex justify-between'>
                           <span>Flight fare</span>
-                          <span>INR15,457.6</span>
+                          <span>INR {flightFare}</span>
                       </div>
                       <div className='flex justify-between'>
                           <span>Taxes and charges</span>
-                          <span>INR5,457.6</span>
+                          <span>INR {taxes}</span>
                       </div>
                       {location.state?
                       <div className='flex justify-between'>
                           <span>Flexible ticket</span>
-                          <span>{location.state}</span>
+                          <span>{flexible}</span>
                       </div>:
                       <div className='hidden'>
                       <span>Flexible ticket</span>
@@ -91,7 +99,7 @@ const FlightCheckOut = ()=>{
                   </div>}  
                       <div className='flex justify-between my-4'>
                           <span className='font-bold text-xl'>Total</span>
-                          <span className='font-bold text-xl'>INR25,457.6</span>
+                          <span className='font-bold text-xl'>INR {ticketPrice + flightFare + taxes + flexible}</span>
                       </div>  
                       <p className='text-left'>Includes taxes and charges</p>
                       
