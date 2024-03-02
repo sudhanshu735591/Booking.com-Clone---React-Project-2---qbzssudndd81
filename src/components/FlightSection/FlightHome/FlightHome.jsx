@@ -10,6 +10,7 @@ import { trendingCity } from '../Constant/trendingCity';
 import TopNav from '../../Navbar/TopNav/TopNav';
 import Stays from '../../Navbar/BottomNav/Stays/Stays/Stays';
 import Flight from '../../Navbar/BottomNav/Stays/Stays/Flight/Flight';
+import FlightNavbar from './FlightSearchBar/FlightSearchBar';
 
 function FlightHome() {
     
@@ -24,6 +25,7 @@ function FlightHome() {
     const handleArea =(val)=>{
         setArea(val);
     }
+    
 
   return (
   <>
@@ -33,8 +35,10 @@ function FlightHome() {
             <Stays/>
             <Flight/>
         </div>
+    </div>
 
-        
+    <div>
+        <FlightNavbar/>
     </div>
 
 

@@ -27,7 +27,7 @@ function FormData(props){
 
     const { startWeekDay } = useContext(UserContext);
 
-    const {endWeekDay, setEndWeekDay} = useContext(UserContext);
+    const {endWeekDay} = useContext(UserContext);
 
     const {startDate} = useContext(UserContext);
 

@@ -19,6 +19,7 @@
     "@mui/x-date-pickers": "^6.19.2",
     "autoprefixer": "^10.4.16",
     "date-fns": "^3.3.1",
+    "dateformat": "^5.0.3",
     "dayjs": "^1.11.10",
     "google-map-react": "^2.2.1",
     "react": "18.2.0",

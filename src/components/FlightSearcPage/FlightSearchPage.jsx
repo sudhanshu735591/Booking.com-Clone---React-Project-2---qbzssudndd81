@@ -5,6 +5,7 @@ import FlightDetail from '../FlightDetails/FlightDetails';
 import FooterFlight from './FlightSearchFooter/FlightSearchFooter';
 import TopNav from '../Navbar/TopNav/TopNav';
 import { useLocation } from 'react-router';
+import FlightNavbar from '../FlightSection/FlightHome/FlightSearchBar/FlightSearchBar';
 
 
 function Flightsearch() {
@@ -15,10 +16,13 @@ function Flightsearch() {
 
   const [departure, setdeparture] = useState("");
 
+  const [textFlag, setTextFlag] = useState();
 
 
-  const handleSelect = (id) => {
+
+  const handleSelect = (id,e) => {
     setSelectedOption(id);
+    setTextFlag(e.target.innerText);
   }
 
   const handleClick = (id) => {
@@ -30,6 +34,10 @@ function Flightsearch() {
     <>
       <div className='flightSearchBox'>
         <TopNav />
+      </div>
+
+      <div>
+        <FlightNavbar/>
       </div>
 
       <div className='flex flex-row justify-center gap-10 p-4 md:justify-evenly sm:flex-col sm:justify-center'>
@@ -133,17 +141,16 @@ function Flightsearch() {
         </div>
         <div className='w-[50%] flex flex-col gap-2 sm:w-[100%]'>
           <div className='flex flex-row justify-around items-center p-4 border border-slate-200'>
-            <span onClick={() => { handleSelect(1) }} className={1 == selectedOption ? "changeClass" : "prevClass"}>Best
+            <span onClick={(e) => { handleSelect(1, e) }} className={1 == selectedOption ? "changeClass" : "prevClass"}>Best
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 15.75h-.75a.75.75 0 0 1-.75-.75v-3.75a1.5 1.5 0 0 0-1.5-1.5h-.75a.75.75 0 0 0 0 1.5h.75V15a2.25 2.25 0 0 0 2.25 2.25h.75a.75.75 0 0 0 0-1.5zM11.625 6a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zM22.5 12c0 5.799-4.701 10.5-10.5 10.5S1.5 17.799 1.5 12 6.201 1.5 12 1.5 22.5 6.201 22.5 12zm1.5 0c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12z"></path></svg>
             </span>
-            <span onClick={() => { handleSelect(2) }} className={2 == selectedOption ? "changeClass" : "prevClass"}>Cheapest</span>
-            <span onClick={() => { handleSelect(3) }} className={3 == selectedOption ? "changeClass" : "prevClass"}>Fastest</span>
+            <span onClick={(e) => { handleSelect(2, e) }} className={2 == selectedOption ? "changeClass" : "prevClass"}>Cheapest</span>
+            <span onClick={(e) => { handleSelect(3,e) }} className={3 == selectedOption ? "changeClass" : "prevClass"}>Fastest</span>
           </div>
-          <FlightDetail />
+          <FlightDetail textFlag = {textFlag}/>
           {/* <FlightDetail />
           <FlightDetail />
           <FlightDetail /> */}
-
         </div>
       </div>
       <FooterFlight />

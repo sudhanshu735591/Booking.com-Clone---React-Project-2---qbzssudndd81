@@ -1,16 +1,31 @@
 export const international = [
     {
-        // location:"Raipur to Bhubaneshwar",
-        source:"Raipur",
-        destination: "Bhubaneshwar",
+        source:{
+            station_name: "Delhi",
+            station_code : "DEL",
+        },
+
+        destination : {
+            station_name : "Mumbai",
+            station_code : "BOM",
+        },
         date:"21 Feb - 27 Feb . Round trip",
-        img:"https://q-xx.bstatic.com/xdata/images/city/square210/977254.jpg?k=63f933394752da6919853788cd62467945e5d98127c5c3a04abc9981882400b8&o=",
-    },
+        img:"https://q-xx.bstatic.com/xdata/images/city/square210/684542.jpg?k=355729edb3038d43ad8d7d8b0fc778dd7f23778660260577598e38ea613dffec&o=",
+
+    },  
+    
     {
-        // location:"Raipur to Dubai",
-        source:"Raipur",
-        destination: "Dubai",
+     
+        source:{
+            station_name: "Mumbai",
+            station_code : "BOM",
+        },
+
+        destination : {
+            station_name : "Delhi",
+            station_code : "DEL",
+        },
         date:"1 Feb - 27 Feb . Round trip",
-        img:"https://q-xx.bstatic.com/xdata/images/city/square210/977219.jpg?k=eb68fc1a70f25a5ddca0f4ed69203b9a30ed5ae08d5923ffc045ef366c12229b&o=",
-    }
+        img:"https://q-xx.bstatic.com/xdata/images/city/square210/684638.jpg?k=299dcb866812c888f4aa1db153b4c5bd503e26c1702176e9e50e4d8c39587bd7&o=",
+    },
 ]

@@ -56,8 +56,6 @@ function CalenderApp() {
     setEndYear(endYear);
   });
 
-
-
   return (
     <div>
       <DateRangePicker

@@ -1,25 +1,75 @@
 
 
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../../Navbar/navbar';
 import TopNav from '../../Navbar/TopNav/TopNav';
+import UserContext from '../../ContextApi/userContext';
+import FlightCodeArray from '../Constant/FlightStationCode';
 
 function TicketType() {
     const navigate = useNavigate();
+
     const[flag,setFlag] = useState(true);
+
+    const {startWeekDay} = useContext(UserContext);
+
+    const {endWeekDay} = useContext(UserContext);
+
+    const {startDate} = useContext(UserContext);
+
+    const {endDate} = useContext(UserContext);
+
+    const [startCity, setStartCity] = useState();
+
+    const [endCity, setEndCity] = useState();
+
+  
+
+
+    
+
 
     const handleBack = ()=>{
         navigate('/FlightSearchPage');
     }
-   
-    const handleNext = () => {
-        if(!flag)
-            navigate("/flying", { state: "INR1,943.21" });
-        else
-        navigate("/flying", { state: "" });
+
+    
+      const location = useLocation();
+
+      console.log("location", location);
+
+      const handleNext = () => {
+        if(!flag){
+            navigate("/flying", { state:{
+                startCity:startCity,
+                endCity:endCity,
+            } });
+        }
+        
+        else{
+            navigate("/flying",  { state:{
+                startCity:startCity,
+                endCity:endCity,
+            } });
+        }
 
       };
+
+
+
+
+      useEffect(()=>{
+        FlightCodeArray.map((val)=>{
+            if(val.code===location.state.source){
+                setStartCity(val.city);
+            }
+
+            if(val.code===location.state.destination){
+                setEndCity(val.city)
+            }
+          })        
+      },[location])
     
   return (
     <div>
@@ -42,8 +92,8 @@ function TicketType() {
        
       </div>
       <div className='w-[75%] m-auto p-10  md:w-[100%]'>
-        <p className='text-left my-4 text-sm'>Round trip · 1 traveller · Mon 26 Feb - Mon 4 Mar</p>
-        <h1 className='text-left my-4 font-bold text-2xl'>Raipur to Bangalore</h1>
+        <p className='text-left my-4 text-sm'>Round trip · 1 traveller · {startWeekDay} {startDate}  - {endWeekDay} {endDate}</p>
+        <h1 className='text-left my-4 font-bold text-2xl'>{startCity} to {endCity}</h1>
         <p className='text-left my-4 font-semibold'>Select your ticket type</p>
         {/* cards */}
             <div className='flex gap-4 md:flex-col'>
@@ -76,9 +126,12 @@ function TicketType() {
                     </div>
                     <div className='pt-1 flex justify-between items-center border-t'>
                         <p className='text-sm'>Total price</p>
-                        <p className='font-semibold'>INR14,457.64</p>
+                        <p className='font-semibold'>INR {location.state.ticketPrice}</p>
                     </div>
                 </div>
+
+
+                
                 <div className='flex flex-col gap-2 w-[30%] md:w-[100%] md:m-0'>
                     <div className='border-[2px] border-solid rounded p-4 h-fit' style={{borderColor:!flag&&"#006ce4"}} onClick={()=>{setFlag(!flag)}}>
                     <div className='flex justify-between items-center gap-20'>
@@ -119,7 +172,7 @@ function TicketType() {
                     </div>
                     <div className='pt-1 flex justify-between items-center border-t'>
                         <p className='text-sm'>Total price</p>
-                        <p className='font-semibold'>INR16,337.13</p>
+                        <p className='font-semibold'>INR {location.state.ticketPrice+2233}</p>
                     </div>
                     </div>
                     <p className='text-[12px]'>Flexible tickets are only available when you book your flight. See Flexible ticket section for terms and conditions.</p>
@@ -128,28 +181,29 @@ function TicketType() {
                 <div className='w-[35%] md:w-[100%] md:m-0 '>  
                     <div className='flex justify-between'>
                         <span className='font-medium'>Ticket (1 adult)</span>
-                        <span className='font-medium'>INR14,457.64</span>
+                        <span className='font-medium'>INR {location.state.ticketPrice}</span>
                     </div>
                     <div className='flex justify-between'>
                         <span>Flight fare</span>
-                        <span>INR15,457.6</span>
+                        <span>INR 1233</span>
                     </div>
                     <div className='flex justify-between'>
                         <span>Taxes and charges</span>
-                        <span>INR5,457.6</span>
+                        <span>INR 1033</span>
                     </div>
                     {!flag?
-                    <div className='flex justify-between'>
+                        <div className='flex justify-between'>
+                            <span>Flexible ticket</span>
+                            <span>INR 1,943.21</span>
+                        </div>:
+                        <div className='hidden'>
                         <span>Flexible ticket</span>
-                        <span>INR1,943.21</span>
-                    </div>:
-                    <div className='hidden'>
-                    <span>Flexible ticket</span>
-                    <span>INR1,943.21</span>
-                </div>}  
+                        <span>INR 1,943.21</span>
+                        </div>
+                    }  
                     <div className='flex justify-between my-4'>
                         <span className='font-bold text-xl'>Total</span>
-                        <span className='font-bold text-xl'>INR25,457.6</span>
+                        <span className='font-bold text-xl'>INR {flag ? location.state.ticketPrice +1233+1033 :location.state.ticketPrice +1233+1033+1943.21}</span>
                     </div>  
                     <p className='text-left'>Includes taxes and charges</p>
                     

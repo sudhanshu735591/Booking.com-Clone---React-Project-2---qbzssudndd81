@@ -6,9 +6,13 @@ import TopNav from '../../Navbar/TopNav/TopNav';
 
 function Flying() {
     const navigate = useNavigate();
+
     const location = useLocation();
-    // const data = { name: "John", age: 30 };
-    console.log(location.state);
+
+    const {startCity, endCity} = location.state || {};  
+
+    console.log("location is", startCity);
+    
     const handleBack = ()=>{
         navigate('/ticketType');
     }
@@ -54,7 +58,7 @@ function Flying() {
     </div>
     <div className='w-[75%] m-auto p-10 md:w-[100%]'>
       <p className='text-left my-4 text-sm'>Round trip · 1 traveller · Mon 26 Feb - Mon 4 Mar</p>
-      <h1 className='text-left my-4 font-bold text-2xl'>Raipur to Bangalore</h1>
+      <h1 className='text-left my-4 font-bold text-2xl'>{startCity} to {endCity}</h1>
       <p className='text-left my-4 font-semibold'>Who's flying?</p>
       {/* cards */}
       <div className='flex justify-between md:flex-col'>
@@ -145,7 +149,7 @@ function Flying() {
                   {location.state?
                   <div className='flex justify-between'>
                       <span>Flexible ticket</span>
-                      <span>{location.state}</span>
+                      <span>{startCity}</span>
                   </div>:
                   <div className='hidden'>
                   <span>Flexible ticket</span>
