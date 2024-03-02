@@ -159,6 +159,11 @@ function HotelCards() {
     function handleHeartClick(){
         navigate("/FavoriteList");
     }
+
+
+    function onClickHandler(id){
+        navigate(`/Singleinfo/${id}`)
+    }
   
 
     return (
@@ -327,7 +332,7 @@ function HotelCards() {
                                             <p className="font-normal jdeeijdi">Located 820 feet from the new Digha sea beach, this OYO hotel is equipped with an in-house restaurant and free breakfast is served to the guests. </p>
 
                                             <div className="mt-3 flex justify-end">
-                                                <Button className="eheuene" text="See Availability"></Button>
+                                                <Button onClick = {()=>onClickHandler(val._id)} className="eheuene" text="See Availability"></Button>
                                             </div>
                                         </div>
                                     </div>

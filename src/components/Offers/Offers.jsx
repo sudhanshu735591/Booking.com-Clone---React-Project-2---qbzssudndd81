@@ -18,7 +18,7 @@ function Offers() {
 
 
     function StayButtonHandler() {
-        navigate("/FlightSearchPage");
+        navigate("/FlightSection");
     }
 
    

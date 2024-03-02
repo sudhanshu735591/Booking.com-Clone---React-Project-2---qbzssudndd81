@@ -39,12 +39,12 @@ function CalenderApp() {
     
     
     const startDay = startDate.getDate();
-    const startMonth = startDate.getMonth() + 1;
+    const startMonth = startDate.getMonth() ;
     const startWeek = startDate.getDay();
     const startYear = startDate.getFullYear();
 
     const endDay = endDate.getDate();
-    const endMonth = endDate.getMonth() + 1;
+    const endMonth = endDate.getMonth();
     const endWeek = endDate.getDay();
     const endYear = startDate.getFullYear();
 

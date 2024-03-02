@@ -8,7 +8,7 @@ import { useLocation } from 'react-router';
 import FlightNavbar from '../FlightSection/FlightHome/FlightSearchBar/FlightSearchBar';
 
 
-function Flightsearch() {
+function  Flightsearch() {
 
   const [showMore, setShowMore] = useState(false);
 

@@ -1,11 +1,15 @@
 import { useParams } from "react-router";
 import "./ResidenceDetails.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../ContextApi/userContext";
 
 function ResidenceDetails() {
 
     const { id } = useParams();
     const [data, setData] = useState();
+
+    
+
 
     const singleDataApi = async () => {
         try {
@@ -68,23 +72,4 @@ function ResidenceDetails() {
 
 
 export default ResidenceDetails;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

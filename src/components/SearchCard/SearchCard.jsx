@@ -23,6 +23,18 @@ function SearchCard(){
         navigate(`/Hotels?search=${JSON.stringify(searchCity)}`)
     }
 
+
+    const {startWeekDay} = useContext(UserContext);
+    const {endWeekDay} = useContext(UserContext);
+    const {startDate} = useContext(UserContext);
+    const {endDate} = useContext(UserContext);
+
+
+    function handleDateInput(e){
+        console.log(e.target.value);
+    }
+
+
     return(
         <div className="ejdnjdn p-3 ">
             <div className="text-xl font-medium">Search</div>
@@ -39,7 +51,7 @@ function SearchCard(){
             <div className="mt-1">
                 <div>Check-in date</div>
                 <div className="">
-                    <input className="rjnjed" type="date"/>
+                    <input onClick={handleDateInput} className="rjnjed" type="date"/>
                 </div>
             </div>
 

@@ -1,13 +1,19 @@
+import { useNavigate } from "react-router";
 import "./Stays.css";
 
 function Stays(){
+
+    const navigate = useNavigate();
+
+    function handliClick(){
+        navigate("/");
+    }
     return(
         <div className="edjen98383">
             <ul className="euheud98899">
                 <li className="idj39">
-                    <span className="staysSpan">Stays</span>
+                    <span onClick={handliClick} className="staysSpan">Stays</span>
                 </li>
-                
             </ul>
         </div>
     )
