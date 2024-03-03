@@ -1,9 +1,8 @@
 import TopNav from "../Navbar/TopNav/TopNav";
-import "./Sign_in.css";
 
 function SignIn(){
     return(
-        <div className="SignInBox">
+        <div className="SignInBox bg-blue-800 p-3">
             <TopNav/>
         </div>
     )

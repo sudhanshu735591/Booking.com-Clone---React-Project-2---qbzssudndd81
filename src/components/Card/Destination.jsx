@@ -5,7 +5,7 @@ function Destinations(props) {
     const {heading, para, DestDetails, edi393idj} = props;
     
     return (
-        <div className="edui3ie">
+        <div className="edui3ie lg:pl-5 lg:pr-5">
             <div className="w-[67%] m-auto font-bold text-xl lg:w-full">{heading}</div>
             <div className="edn3iej93">{para}</div>
             <div className={edi393idj}>

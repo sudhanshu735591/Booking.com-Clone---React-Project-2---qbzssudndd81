@@ -11,6 +11,19 @@
     }
 }
 
+@media (max-width:436px){
+    .dnjed939{
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .heroBannerSearchBox {
+        width: 100%;
+        margin-top: -50px;
+    }
+}
+
+
 .ee3r3433{
     color: white;
     font-size: 26px;

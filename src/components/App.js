@@ -14,6 +14,7 @@ import TicketType from "./FlightSection/TicketType/TicketType";
 import Flying from "./FlightSection/FlyingSection/Flying";
 import FlightCheckOut from "./FlightSection/CheckOutDetails/FlightCheckOutDetails";
 import FlightPayment from "./FlightSection/FlightPayment/FlightPayment";
+import RegisterPage from "./RegisterPage/RegisterPage";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
 
         <Route path="/FlightCheckOut" element={<FlightCheckOut/>}/>
         <Route path="/FlightPayment" element={<FlightPayment/>}/>
+        <Route path="/RegisterPage" element={<RegisterPage/>}/>
 
       </Routes>
   );

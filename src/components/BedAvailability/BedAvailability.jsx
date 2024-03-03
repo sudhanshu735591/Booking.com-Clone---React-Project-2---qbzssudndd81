@@ -14,9 +14,6 @@ function BedAvailability() {
 
     const {childrenCount} = useContext(UserContext);
 
-
- 
-
     const singleDataApi = async () => {
         try {
             let data = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/hotel/${id}`, {

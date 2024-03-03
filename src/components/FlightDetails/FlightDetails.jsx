@@ -43,7 +43,6 @@ function FlightDetail(props) {
     })
 
     let res = await data?.json();
-    // console.log("res", res.data.flights);
     setResData(res?.data?.flights);
   }
 

@@ -24,15 +24,6 @@ function TicketType() {
 
     const [endCity, setEndCity] = useState();
 
-    // const [fromStation, setFromStation] = useState();
-
-    // const [toStation, setToStation] = useState();
-
-
-
-
-
-
     const location = useLocation();
 
 

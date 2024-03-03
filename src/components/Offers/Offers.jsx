@@ -23,7 +23,7 @@ function Offers() {
 
    
     return (
-        <div className="offerSection w-[68%] lg:w-full">
+        <div className="offerSection w-[68%] lg:w-full lg:pl-5 pr-5">
             {handleFlagCard &&  <div className="edjjijed">
                 <MenCountCard/>
             </div>}

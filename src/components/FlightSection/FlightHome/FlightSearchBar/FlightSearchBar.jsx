@@ -99,8 +99,9 @@ const FlightNavbar = () => {
                         </path></svg>
                     <input type="text" name="date" value={`${startWeekDay}, ${startDate} ── ${endDate}`} onClick={handleChange}
                         className="text-sm border-r-4 border-[#ffb700] font-semibold p-5 outline-none w-[120%] bg-gray-100" />
-
                 </div>
+
+
                 <button onClick={handleClickButton} className="lg:w-[100%] bg-blue-600 hover:bg-blue-800 p-[15px] w-[10%] text-white font-semibold cursor-pointer">Submit</button>
             </form>
 
