@@ -59,7 +59,6 @@ function FlightHome() {
         <div className='border-b-2 border-zinc-200 mt-[2rem]'></div>
 
         <SimpleSlider arrValue = {color==1?international:domestic}/>
-
         
         <div className='mt-16'>
             <h1 className='font-bold text-xl text-left'>Trending Cities</h1>

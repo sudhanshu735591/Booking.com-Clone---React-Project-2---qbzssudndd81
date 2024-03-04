@@ -42,7 +42,12 @@ export default function SimpleSlider({arrValue}) {
   const navigate = useNavigate();
 
   const handleClick = (source, destination)=>{
-    navigate('/FlightSearchPage',{state : {source : source, destination: destination}});
+    if(localStorage.getItem("Token")){
+      navigate('/FlightSearchPage',{state : {source : source, destination: destination}});
+    }
+    else{
+      navigate("/sign_in_page");
+    }
   }
 
   const {startDate} = useContext(UserContext);
