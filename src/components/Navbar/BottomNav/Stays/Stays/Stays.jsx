@@ -9,7 +9,7 @@ function Stays(){
         navigate("/");
     }
     return(
-        <div className="edjen98383">
+        <div>
             <ul className="euheud98899">
                 <li className="idj39">
                     <span onClick={handliClick} className="staysSpan">Stays</span>

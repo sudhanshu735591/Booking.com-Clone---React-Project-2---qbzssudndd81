@@ -28,7 +28,7 @@ function UserDetails(props) {
     });
 
     function onChangeHandler(e){
-        let updatedDetails = {...userDetails    };
+        let updatedDetails = {...userDetails};
 
         updatedDetails[e.target.name] = e.target.value;
 

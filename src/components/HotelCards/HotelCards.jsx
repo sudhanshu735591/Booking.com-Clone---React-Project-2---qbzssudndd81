@@ -30,19 +30,7 @@ function HotelCards() {
     }
 
 
-    function checkBoxValueHandler(value){
-        if(!checkBoxValue.includes(value)){
-            setCheckBoxValue([...checkBoxValue, value]);
-        }
 
-        if(checkBoxValue.includes(value)){
-            const updatedCheckBox = checkBoxValue.filter(item=>item!=value);
-            setCheckBoxValue(updatedCheckBox);
-        }
-
-        filterDataHandler();
-        console.log("2nd time", checkBoxValue);
-    }
     
 
     const apiData = async () => {
@@ -64,42 +52,66 @@ function HotelCards() {
         }
     }
 
-    function filterDataHandler(){
-        {filterationData && filterationData.forEach((val)=>{
-            let randomNumber = Math.floor(Math.random()*2)+1;
+    // function filterDataHandler(){
+    //     {filterationData && filterationData.forEach((val)=>{
+    //         let randomNumber = Math.floor(Math.random()*2)+1;
 
-            let newArr = [];
+    //         let newArr = [];
             
-            if(randomNumber%2===0){
-                newArr.push({
-                    "Child Allowance": true,
-                    "Guest Allowance": false,
-                    "Chalets": false,
-                    "Vacation Homes": true,
-                    "Farm Stays": false,
-                    "Homestays": true,
-                    "Resort Vilages": false,
-                    "Country Houses": true,
-                });
-            }
+    //         if(randomNumber%2===0){
+    //             newArr.push({
+    //                 "Child Allowance": true,
+    //                 "Guest Allowance": false,
+    //                 "Chalets": false,
+    //                 "Vacation Homes": true,
+    //                 "Farm Stays": false,
+    //                 "Homestays": true,
+    //                 "Resort Vilages": false,
+    //                 "Country Houses": true,
+    //             });
+    //         }
 
-            else{
-                newArr.push({
-                    "Child Allowance": false,
-                    "Guest Allowance": true,
-                    "Chalets": true,
-                    "Vacation Homes": false,
-                    "Farm Stays": true,
-                    "Homestays": false,
-                    "Resort Vilages": false,
-                    "Country Houses": false
-                });
-            }
-            val[0] = newArr;
+    //         else{
+    //             newArr.push({
+    //                 "Child Allowance": false,
+    //                 "Guest Allowance": true,
+    //                 "Chalets": true,
+    //                 "Vacation Homes": false,
+    //                 "Farm Stays": true,
+    //                 "Homestays": false,
+    //                 "Resort Vilages": false,
+    //                 "Country Houses": false
+    //             });
+    //         }
+    //         val[0] = newArr;
 
-            console.log("hello", filterationData);
+    //         console.log("hello", filterationData);
+    //         setAllData(filterationData);
+    //     })}
+    // }
 
-        })}
+
+    function checkBoxValueHandler(e, value, checked){
+        setDuplicateData(allData);
+       
+        if(e.target.checked && value==="Child Allowance"){
+            const filterData = allData.filter((val)=>{
+                return val.childAndExtraBedPolicy.extraBedProvidedForChild===true;
+            })
+            console.log(filterData);
+            setDuplicateData(filterData);
+        }
+
+
+        if(e.target.checked && value==="Guest Allowance"){
+            const filterData = allData.filter((val)=>{
+                return val.childAndExtraBedPolicy.extraBedForAdditionalGuest===true;
+            })
+            console.log(filterData);
+            setDuplicateData(filterData);
+        }
+
+        
     }
 
     useEffect(()=>{
@@ -151,10 +163,8 @@ function HotelCards() {
 
     useEffect(() => {
         apiData();
-        filterDataHandler();
+        // filterDataHandler();
     }, [])
-
-
 
     function handleHeartClick(){
         navigate("/FavoriteList");
@@ -177,14 +187,14 @@ function HotelCards() {
                     <div className="border-2 p-2 font-bold  w-full rounded-t-lg">Filter by:</div>
 
                     <div className="w-60 border-2 p-2">
-                        <h3 className="font-bold">Your Previous Filters</h3>
+                        <h3 className="font-bold">Extra Bed Policy</h3>
                         {
                             checkBoxCheked.map((val, index)=>{
                                 return(
                                     <div className="flex mt-2 items-center gap-2">
                                         <input 
                                         id={val.id}     
-                                        onChange={()=>checkBoxValueHandler(val.label, index, val.id)} 
+                                        onChange={(e)=> checkBoxValueHandler(e,val.label, index, val.id, val.checked)} 
                                         type="checkbox"
                                         name="bordered-checkbox" 
                                         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
@@ -195,8 +205,6 @@ function HotelCards() {
                         }
                     </div>
 
-
-
                     <div className=" w-full border-2 p-2 edebh">
                         <h3 className="font-bold">Popular Filters</h3>
 
@@ -204,7 +212,6 @@ function HotelCards() {
                             <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
                             <p className="font-normal">Coffee/Tea maker</p>
                         </div>
-
 
                         <div className="flex mt-2 items-center gap-2">
                             <input id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />

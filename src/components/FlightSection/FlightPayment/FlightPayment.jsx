@@ -60,7 +60,7 @@ function FlightPayment() {
           </div>
           <p className='text-sm font-semibold'>Who's flying?</p>
           <div className='border-neutral-700 border-b-[2px] w-[19%] h-[1px]'></div>
-          <div className='rounded-full h-6 w-6 bg-[#006ce4] text-white'>3</div>
+          <div className='rounded-full h-6 w-6 bg-[#006ce4] text-white flex justify-center'>3</div>
           <p className='text-sm font-semibold'>Check and pay</p>
           <div className='border-neutral-700 border-b-[2px] w-[19%] h-[1px]'></div>
       </div>

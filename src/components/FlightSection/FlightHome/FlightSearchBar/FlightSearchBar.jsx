@@ -34,33 +34,17 @@ const FlightNavbar = () => {
 
     }
 
+    function swapCity(){
+       let temp = startCity;
+       setStartCity(endCity);
+       setEndCity(temp);
+    }
+
     return (
         <div className='bg-gray-100 p-4'>
             <div className=' w-[71%] m-auto lg:w-[100%]'>
                 <p className='text-[28px] font-bold text-left'>Compare and book flights with ease</p>
                 <p className='text-sm text-left font-normal'>Discover your next dream destination</p>
-                {/* <div className='flex gap-2'>
-                    <div className="flex items-center w-30">
-                        <input checked id="bordered-radio-1" type="radio" value="" name="bordered-radio" className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 " />
-                        <label for="bordered-radio-1" className="w-full py-2 ms-2 text-sm text-gray-900 dark:text-gray-300 font-normal">Round trip</label>
-                    </div>
-                    <div className="flex items-center w-30">
-                        <input checked id="bordered-radio-1" type="radio" value="" name="bordered-radio" className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 " />
-                        <label for="bordered-radio-1" className="w-full py-2 ms-2 text-sm font-normal text-gray-900 dark:text-gray-300">One Way</label>
-                    </div>
-                    <select className='bg-gray-100 outline-none'>
-                        <option selected value="Economy">Economy</option>
-                        <option value="Premium economy">Premium economy</option>
-                        <option value="Business">Business</option>
-                        <option value="First class">First class</option>
-                    </select>
-                    <section className='flex gap-2 justify-center items-center'>
-                        <p className='font-normal'>travellers</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='w-4 h-4'>
-                            <path d="M19.2681 8.91288C19.2687 9.03226 19.2454 9.15054 19.1996 9.26079C19.1539 9.37105 19.0865 9.47105 19.0016 9.55493L12.9445 15.612C12.8211 15.7367 12.6738 15.8353 12.5115 15.9018C12.3491 15.9684 12.1751 16.0017 11.9996 15.9997C11.6491 16.0075 11.3096 15.877 11.0547 15.6362L4.99764 9.57916C4.8275 9.40881 4.73193 9.17788 4.73193 8.93711C4.73193 8.69634 4.8275 8.46542 4.99764 8.29506C5.08117 8.20935 5.18101 8.14122 5.29128 8.09471C5.40155 8.04819 5.52002 8.02423 5.6397 8.02423C5.75937 8.02423 5.87784 8.04819 5.98811 8.09471C6.09838 8.14122 6.19822 8.20935 6.28175 8.29506L11.9996 13.9887L17.7175 8.27084C17.801 8.18512 17.9009 8.11699 18.0111 8.07048C18.1214 8.02396 18.2399 8 18.3596 8C18.4792 8 18.5977 8.02396 18.708 8.07048C18.8182 8.11699 18.9181 8.18512 19.0016 8.27084C19.0871 8.3543 19.1548 8.45422 19.2006 8.56457C19.2464 8.67492 19.2694 8.79341 19.2681 8.91288Z">
-                            </path></svg>
-                    </section>
-                </div> */}
 
             </div>
 
@@ -77,7 +61,7 @@ const FlightNavbar = () => {
 
 
                 <div className='border-x-4 border-[#ffb700] w-[10%] flex items-center justify-center'>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <svg onClick={swapCity} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill='blue' d="M10.5 15.75h12.75a.75.75 0 0 0 0-1.5H10.5a.75.75 0 0 0 0 1.5zm9.22-3.22l3 3v-1.06l-3 3a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06zM13.5 8.25H.75a.75.75 0 0 0 0 1.5H13.5a.75.75 0 0 0 0-1.5zm-9.22 3.22l-3-3v1.06l3-3a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06z">
                         </path></svg>
                 </div>
@@ -97,7 +81,7 @@ const FlightNavbar = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='w-6 h-6'>
                         <path d="M22.5 13.5v8.25a.75.75 0 0 1-.75.75H2.25a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h19.5a.75.75 0 0 1 .75.75v8.25zm1.5 0V5.25A2.25 2.25 0 0 0 21.75 3H2.25A2.25 2.25 0 0 0 0 5.25v16.5A2.25 2.25 0 0 0 2.25 24h19.5A2.25 2.25 0 0 0 24 21.75V13.5zm-23.25-3h22.5a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0 0 1.5zM7.5 6V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0zM18 6V.75a.75.75 0 0 0-1.5 0V6A.75.75 0 0 0 18 6zM5.095 14.03a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06zm.53-1.28a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zm-.53 6.53a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06zm.53-1.28a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zm5.845-3.97a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06zm.53-1.28A1.125 1.125 0 1 0 12 15a1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zm-.53 6.53a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06zM12 18a1.125 1.125 0 1 0 0 2.25A1.125 1.125 0 0 0 12 18a.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zm5.845-3.97a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06zm.53-1.28a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zm-.53 6.53a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06zm.53-1.28a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5z">
                         </path></svg>
-                    <input type="text" name="date" value={`${startWeekDay}, ${startDate} ── ${endDate}`} onClick={handleChange}
+                    <input type="text" name="date" value={`${startWeekDay}, ${startDate}`} onClick={handleChange}
                         className="text-sm border-r-4 border-[#ffb700] font-semibold p-5 outline-none w-[120%] bg-gray-100" />
                 </div>
 

@@ -5,6 +5,12 @@ function FavoriteDataCard(props) {
 
     const { image, heading, location, rating, review, menNumber } = props;
 
+    const favItemApi = async()=>{
+        const data = await fetch("",{
+            
+        })
+    }
+
     return (
         <div className="border-2 w-[22%] mt-10 ml-20 rounded-xl">
             <div className="border-b-2">

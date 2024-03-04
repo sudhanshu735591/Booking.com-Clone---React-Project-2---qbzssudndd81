@@ -29,7 +29,11 @@
     border-radius: 21px;
     display: flex;
     gap: 19px;
-    border: 2px solid;
+}
+
+.staysSpan:hover{
+    padding: 5px 20px;
+    border: 1px solid white;
 }
 
 

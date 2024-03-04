@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import Button from "../Button/Button";
 import TopNav from "../Navbar/TopNav/TopNav";
 import UserContext from "../ContextApi/userContext";
+import { useNavigate } from "react-router";
 
 function SignIn() {
 
@@ -11,8 +12,9 @@ function SignIn() {
 
     const [password, setPassword] = useState();
 
-    const [successText, setSuccessText] = useState();
+    const navigate = useNavigate();
 
+    const [successText, setSuccessText] = useState();
 
     const loginApi = async()=>{
        if(email && password){
@@ -39,7 +41,8 @@ function SignIn() {
 
                 setTimeout(()=>{
                     setSuccessText("");
-                },3000)
+                    navigate("/");
+                },2000)
             }
 
             localStorage.setItem("Name", res?.data?.name);
@@ -58,7 +61,6 @@ function SignIn() {
             <div className="SignInBox bg-blue-800 p-3">
                 <TopNav />
             </div>
-
 
             <div className="text-center flex flex-col w-[50%] m-auto">
                 <div className="p-5 w-[60%] m-auto flex flex-col gap-4 items-start ">

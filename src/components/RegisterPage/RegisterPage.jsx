@@ -76,7 +76,7 @@ function RegisterPage(){
                     <p className="text-xl">Create an account</p>
 
                     <div className="flex flex-col gap-1 items-start w-[100%]">
-                        <label className="text-lg " for="username">Username: </label>
+                        <label className="text-lg " for="username">User Name: </label>
                         <input onChange={(e)=>setUsername(e.target.value)} className="border-2 rounded w-[100%] p-1" type="text" placeholder="Enter Username"/>
 
                         <label className="text-lg " for="username">Email: </label>

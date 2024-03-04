@@ -31,8 +31,11 @@ function Flying() {
 
     const [phoneNumber, setPhoneNumber] = useState();
 
-    console.log("loo", startCity);
 
+    const [firtNameError, setFirstNameError] = useState();
+
+   const [emailError, setEmailError] = useState();
+   const [phoneError, setPhoneError] = useState();
 
     
     const handleBack = ()=>{
@@ -51,6 +54,20 @@ function Flying() {
     }
 
     const handleNext = ()=>{
+        if(!email){
+            setEmailError("Please Enter Email");
+        }
+        else if(!email.includes("@")){
+            setEmailError("Please Include @,. in valid email format")
+        }
+        if(!phoneNumber){
+            setPhoneError("Please Enter Phone Number")
+        }
+
+        if(!firstName || !lastName || !gender){
+            setFirstNameError("Please Enter First Name");
+        }
+
         if(firstName && lastName && gender && email && phoneNumber){
             navigate("/FlightCheckOut", {state: {
                 startCity: startCity,
@@ -128,6 +145,7 @@ function Flying() {
                 <div className='flex flex-col cursor-pointer' onClick={openModal}>
                     <p className='font-bold text-left text-sm'>Add Details</p>
                     <p className='text-blue-400 text-sm'>Add details for this traveller</p>
+                    {firtNameError && <p className='font-semibold text-red-800'>Please Click on "Add Details" to Enter inside !!</p>}
                 </div>
                 <Modal open={open} onClose={closeModal} style={{margin:"0",padding:"0"}}>
                 <h2 className='font-bold text-lg'>Adult 1</h2>
@@ -169,9 +187,10 @@ function Flying() {
                 <div className='border rounded p-4 flex flex-col gap-y-3'>
                     <div className='flex flex-col'>
                     <label className='text-left'>
-                        Contact email*
+                        Email*
                     </label>
                     <input onChange={(e)=>setEmail(e.target.value)} type='email' required className='w-[70%] h-10 p-4 text-blue-600 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                    {emailError && <p className='font-semibold text-sm text-red-600'>{emailError}</p>}
                 
                     </div>
                     <div className='flex flex-col'>
@@ -183,9 +202,8 @@ function Flying() {
                         <img src='https://t-cf.bstatic.com/design-assets/assets/v3.109.0/images-flags/In@3x.png' className='rounded-full w-8 h-8'/>
                         
                         <input onChange={(e)=>setPhoneNumber(e.target.value)} type='tel' value={`${phoneNumber?phoneNumber :""}`} required className='w-[61%] h-10 p-4 text-blue-600 border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
-
                     </div>
-                
+                    {phoneError && <p className='font-semibold text-sm text-red-600'>{phoneError}</p>}
                     </div>
                 </div>
               </div>
