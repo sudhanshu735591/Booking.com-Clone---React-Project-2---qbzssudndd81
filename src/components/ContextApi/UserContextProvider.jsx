@@ -23,6 +23,9 @@ const UserContextProvider = ( {children} )=>{
 
     const [endYear, setEndYear] = useState("Year");
 
+
+    const [globalLoginCheck, setGlobalLoginCheck] = useState(localStorage.getItem("Token")?true:false);
+
     return(
         <UserContext.Provider value={{
             childrenCount, setChildrenCount,
@@ -35,6 +38,7 @@ const UserContextProvider = ( {children} )=>{
             endDate, setEndDate,
             startYear, setStartYear,
             endYear, setEndYear,
+            globalLoginCheck, setGlobalLoginCheck
         }}>{children}</UserContext.Provider>
     )
 }

@@ -47,9 +47,17 @@ function BedAvailability() {
                         <th>Number of guests</th>
                         <th>Price for 15 days</th>
                         <th>Your Choices</th>
+                        {localStorage.getItem("Token")?<>
                         <Link to ={`/FormDetails/${id}`}>
                             <th className="cursor-pointer bg-yellow-500 p-4">I'll Reserve</th>
                         </Link>
+                        </>:
+                        <>
+                        <Link to ={`/sign_in_page`}>
+                            <th className="cursor-pointer bg-yellow-500 p-4">I'll Reserve</th>
+                        </Link>
+                        </>
+                        }
                     </tr>
                 </thead>
 
