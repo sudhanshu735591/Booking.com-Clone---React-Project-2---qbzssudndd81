@@ -16,6 +16,8 @@ function SignIn() {
 
     const [successText, setSuccessText] = useState();
 
+
+
     const loginApi = async()=>{
        if(email && password){
         try{
@@ -33,6 +35,7 @@ function SignIn() {
             })
     
             const res = await data?.json();
+            console.log("response", res);
 
             if(res?.status==="success"){
                 setGlobalLoginCheck(true);
@@ -43,6 +46,12 @@ function SignIn() {
                     setSuccessText("");
                     navigate("/");
                 },2000)
+            }
+            if(res?.status==="fail"){
+                setSuccessText("Wrong Email or Password !!");
+                setTimeout(()=>{
+                    setSuccessText("");
+                },5000);
             }
 
             localStorage.setItem("Name", res?.data?.name);
