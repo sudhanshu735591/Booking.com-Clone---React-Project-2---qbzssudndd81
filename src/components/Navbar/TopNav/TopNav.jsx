@@ -42,9 +42,14 @@ function TopNav(){
              <div className="dnjed939">
                 <div onClick={()=>navigate("/")} className="ee3r3433 cursor-pointer">Booking.com</div>
                 <div className="dicjrif98r8">
-                   {!flag?<>
+                   {!flag ?
+                   <>
                     <Button onClick={RegisterPage} className="RegisterButton button" text = "Register"/>
-                    <Button onClick = {handleSignInButton} className="SignInButton button" text = "Sign in"/></>:<div className="text-white text-lg">Hello {localStorage.getItem("Name")[0].toUpperCase()}{localStorage.getItem("Name").slice(1)} !! <span onClick={logOut} className="cursor-pointer">Logout</span></div>}
+                    <Button onClick = {handleSignInButton} className="SignInButton button" text = "Sign in"/>
+                    </>
+                    :<div className="text-white text-lg">Hello {localStorage.getItem("username")[0]?.toUpperCase()}{localStorage.getItem("username").slice(1)} !! <span onClick={logOut} className="cursor-pointer">Logout</span>
+                    </div>
+                    }
                 </div>
             </div>
         </div>
