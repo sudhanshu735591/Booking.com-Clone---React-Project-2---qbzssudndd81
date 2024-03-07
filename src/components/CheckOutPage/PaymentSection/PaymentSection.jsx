@@ -4,13 +4,53 @@ import TopNav from "../../Navbar/TopNav/TopNav";
 import CheckOutHotel from "../CheckOutHotel/CheckOutHotel";
 import HotelDetails from "../HotelDetails/HotelDetails";
 import PriceDetails from "../PriceDetails/PriceDetails";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../../ContextApi/userContext";
 
 
 
 function PaymentDetails() {
 
-    // const {id} = useParams();
+    const {id} = useParams();
+
+    console.log("id is", id);
+
+    const {startDate} = useContext(UserContext);
+    const {startYear} = useContext(UserContext);
+    const {endYear} = useContext(UserContext);
+    const {endDate} = useContext(UserContext);
+
+
+    const newStartDate = new Date(startDate+startYear);
+    const formatDate = newStartDate.toISOString();
+    const newEndDate = new Date(endDate+endYear);
+    const formateEndDate = newEndDate.toISOString();
+
+
+    const bookingDataApi = async()=>{
+        let data = await fetch("https://academics.newtonschool.co/api/v1/bookingportals/booking",{
+            method:"POST",
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem("Token")}`,
+                projectID:"0f6ipegajht2",
+                "content-Type": "application/json",
+            },
+
+            body:JSON.stringify(
+                {
+                    "bookingType" : "hotel",
+                    "bookingDetails" : {
+                        "hotelId" : id,
+                        "startDate" : formatDate, 
+                        "endDate" : formateEndDate,
+                    }
+                }
+            )
+        });
+
+        const res = await data.json();
+        console.log("response is", res);
+    }
 
     
 
@@ -60,9 +100,8 @@ function PaymentDetails() {
 
 
                     <div className="mt-4 flex justify-end rounded">
-                        <Button text = "Complete Booking" className = "rounded-md bg-blue-700 p-3 pl-8 pr-8 text-white"/>
+                        <Button onClick = {bookingDataApi} text = "Complete Booking" className = "rounded-md bg-blue-700 p-3 pl-8 pr-8 text-white"/>
                     </div>
-
                    
                 </div>
             </div>

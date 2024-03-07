@@ -23,15 +23,18 @@ function HotelCards() {
 
     const [checkBoxValue, setCheckBoxValue] = useState([]);
 
+    const [addToFavorite, setAddToFavorite] = useState([]);
+
+
     const navigate = useNavigate();
 
     const inputChangeHandler = (data) => {
         setInputChange(data);
     }
 
-
-
-    
+    if(!localStorage.getItem("favArray")){
+        localStorage.setItem("favArray", JSON.stringify([]));
+    }
 
     const apiData = async () => {
         try {
@@ -43,6 +46,7 @@ function HotelCards() {
             })
 
             const res = await data.json();
+            console.log(res?.data);
             setAllData(res?.data?.hotels);
             setDuplicateData(res?.data?.hotels);
             setFilterationData(res?.data?.hotels);
@@ -52,46 +56,9 @@ function HotelCards() {
         }
     }
 
-    // function filterDataHandler(){
-    //     {filterationData && filterationData.forEach((val)=>{
-    //         let randomNumber = Math.floor(Math.random()*2)+1;
+    
 
-    //         let newArr = [];
-            
-    //         if(randomNumber%2===0){
-    //             newArr.push({
-    //                 "Child Allowance": true,
-    //                 "Guest Allowance": false,
-    //                 "Chalets": false,
-    //                 "Vacation Homes": true,
-    //                 "Farm Stays": false,
-    //                 "Homestays": true,
-    //                 "Resort Vilages": false,
-    //                 "Country Houses": true,
-    //             });
-    //         }
-
-    //         else{
-    //             newArr.push({
-    //                 "Child Allowance": false,
-    //                 "Guest Allowance": true,
-    //                 "Chalets": true,
-    //                 "Vacation Homes": false,
-    //                 "Farm Stays": true,
-    //                 "Homestays": false,
-    //                 "Resort Vilages": false,
-    //                 "Country Houses": false
-    //             });
-    //         }
-    //         val[0] = newArr;
-
-    //         console.log("hello", filterationData);
-    //         setAllData(filterationData);
-    //     })}
-    // }
-
-
-    function checkBoxValueHandler(e, value, checked){
+    function checkBoxValueHandler(e, value){
         setDuplicateData(allData);
        
         if(e.target.checked && value==="Child Allowance"){
@@ -166,13 +133,34 @@ function HotelCards() {
         // filterDataHandler();
     }, [])
 
-    function handleHeartClick(){
-        navigate("/FavoriteList");
+    function handleHeartClick(id, name, location,images, rating, avgCostPerNight, valRating){
+    
+        const favoriteArray = {_id:id, name:name, location:location, images:images, rating:rating , avgCostPerNight:avgCostPerNight, valRating:valRating};
+        const newFavArray = [...JSON.parse(localStorage.getItem("favArray")), favoriteArray];
+        setAddToFavorite(newFavArray);
+
+        const uniqueArr = newFavArray.filter((obj, index, self)=>
+            index === self.findIndex((t)=>(
+                t._id === obj._id 
+            ))
+        )
+
+        localStorage.setItem("favArray", JSON.stringify(uniqueArr));
+        // navigate("/FavoriteList");
+
     }
 
 
     function onClickHandler(id){
         navigate(`/Singleinfo/${id}`)
+    }
+
+
+    function removeItem(id){
+        const favArray = JSON.parse(localStorage.getItem("favArray"));
+        const updatedFavArray = favArray.filter(val => val._id !== id);
+        localStorage.setItem("favArray", JSON.stringify(updatedFavArray));
+        window.location.reload();
     }
   
 
@@ -271,12 +259,29 @@ function HotelCards() {
                                         <div className="edoiejdio">
 
                                             <Link to={`/Singleinfo/${val._id}`}>
-                                                <img  className="edjkednjk3n" src={val.images[0]} />
+                                                <div className="edjkednjk3n" style={{backgroundImage:`url(${val.images[0]})`, backgroundSize:"cover"}}></div>
                                             </Link>
 
-                                            <div className="edeidui3" onClick={handleHeartClick}> 
-                                                <span class="eedba9e88a"><span class="fcd9eec8fb bf9a32efa5" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height={"17px"}><path d="M12.541 21.325l-9.588-10a4.923 4.923 0 1 1 6.95-6.976l1.567 1.566a.75.75 0 0 0 1.06 0l1.566-1.566a4.923 4.923 0 0 1 6.963 6.962l-9.6 10.014h1.082zm-1.082 1.038a.75.75 0 0 0 1.082 0l9.59-10.003a6.418 6.418 0 0 0-.012-9.07 6.423 6.423 0 0 0-9.083-.001L11.47 4.854h1.06l-1.566-1.566a6.423 6.423 0 1 0-9.082 9.086l9.577 9.99z"></path></svg></span></span>
-                                            </div>
+
+
+                                            {
+                                                JSON.parse(localStorage.getItem("favArray")).some((value)=>value._id===val._id)?
+                                                (
+                                                    <>
+                                                        <div className="edeidui3 cursor-pointer" onClick={()=>removeItem(val._id)}> 
+                                                            <span class="eedba9e88a"><span class="fcd9eec8fb bf9a32efa5" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="red" height={"17px"} ><path d="M12.541 21.325l-9.588-10a4.923 4.923 0 1 1 6.95-6.976l1.567 1.566a.75.75 0 0 0 1.06 0l1.566-1.566a4.923 4.923 0 0 1 6.963 6.962l-9.6 10.014h1.082zm-1.082 1.038a.75.75 0 0 0 1.082 0l9.59-10.003a6.418 6.418 0 0 0-.012-9.07 6.423 6.423 0 0 0-9.083-.001L11.47 4.854h1.06l-1.566-1.566a6.423 6.423 0 1 0-9.082 9.086l9.577 9.99z"></path></svg></span></span>
+                                                        </div>
+
+                                                        <p onClick={()=>navigate("/FavoriteList")} className="text-blue-700 cursor-pointer font-semibold">Go To Favorite</p>
+                                                    </>
+                                                ):
+
+                                                (
+                                                    <div className="edeidui3" onClick={()=>handleHeartClick(val._id, val.name, val.location, val.images[0], randomRating, val.avgCostPerNight, val.rating)}> 
+                                                        <span class="eedba9e88a"><span class="fcd9eec8fb bf9a32efa5" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" height={"17px"}><path d="M12.541 21.325l-9.588-10a4.923 4.923 0 1 1 6.95-6.976l1.567 1.566a.75.75 0 0 0 1.06 0l1.566-1.566a4.923 4.923 0 0 1 6.963 6.962l-9.6 10.014h1.082zm-1.082 1.038a.75.75 0 0 0 1.082 0l9.59-10.003a6.418 6.418 0 0 0-.012-9.07 6.423 6.423 0 0 0-9.083-.001L11.47 4.854h1.06l-1.566-1.566a6.423 6.423 0 1 0-9.082 9.086l9.577 9.99z"></path></svg></span></span>
+                                                    </div>
+                                                )
+                                            }
                                         </div>
 
                                         <div className="ed3dk3kdk3 w-full flex flex-col ">

@@ -5,7 +5,7 @@ import Flight from "../Navbar/BottomNav/Stays/Stays/Flight/Flight";
 import Stays from "../Navbar/BottomNav/Stays/Stays/Stays";
 import TopNav from "../Navbar/TopNav/TopNav";
 import "./FavoriteList.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FavoriteDataCard from "./FavoriteDataCard/FavoriteDataCard";
 
 
@@ -18,6 +18,22 @@ function FavoriteList() {
     function homeRedirect(){
         navigate("/");
     }
+
+    const [data, setData] = useState();
+
+
+
+    useEffect(()=>{
+        if(localStorage.getItem("favArray")){
+            setData(localStorage.getItem("favArray"))
+        }
+        else{
+            setData("No Data found");
+        }
+        
+    },[])
+
+  
     return (
         <div>
             <div className="bg-indigo-700 pt-5">
