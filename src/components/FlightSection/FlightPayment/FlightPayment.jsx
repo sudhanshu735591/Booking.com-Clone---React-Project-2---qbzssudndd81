@@ -15,7 +15,6 @@ function FlightPayment() {
     const {startDate} = useContext(UserContext);
     const {endDate} = useContext(UserContext);
     const {startWeekDay} = useContext(UserContext);
-
     const {endWeekDay} = useContext(UserContext);
 
     const handleBack = ()=>{
@@ -32,11 +31,34 @@ function FlightPayment() {
       });
 
       navigate('/FlightCheckOut', { state: { startCity: startCity, endCity: endCity , ticketPrice: ticketPrice, taxes:taxes , flightFare:flightFare, flexible:flexible} })
-  }
+    }
 
-  const handleNext = ()=>{
-      alert("hello")
-  }
+    const handleNext = ()=>{
+      alert("hello");
+    }
+
+
+    console.log("location", location);
+
+
+    // const flightHistory = async ()=>{
+    //   const data = await fetch("https://academics.newtonschool.co/api/v1/bookingportals/booking",{
+    //     headers:{
+    //       Authorization:`Bearer ${localStorage.getItem("Token")}`,
+    //       projectID:"0f6ipegajht2",
+    //     },
+    //     body:{
+    //       "bookingType" : "flight",
+    //       "bookingDetails":{
+
+    //       }
+    //     }
+
+    //   })
+    // }
+
+
+
 
 
   return (
@@ -78,24 +100,14 @@ function FlightPayment() {
                     <img src="https://r-xx.bstatic.com/data/airlines_logo/6E.png" alt="plane" width={"40px"} height={"20px"}/>
                     <p className='flex gap-2 flex-col'>
                         <span className='text-sm font-bold text-left'>{startCity} to {endCity}</span>
-                        <span className='text-sm text-left'>Sun 25 Feb · 21:00 - Sun 25 Feb · 23:05</span>
+                        <span className='text-sm text-left'>{startWeekDay} {startDate} - {endWeekDay} {endDate}</span>
                         <span className='text-sm text-left'>Direct · 2h 05m · Economy</span>
                     </p>
                     <div className='pl-20'>
                         <button className='text-blue-400 px-3 py-2 rounded hover:bg-blue-100'>View flight details</button>
                     </div>
                 </section>
-                {/* <section className='flex gap-6 border rounded p-4 items-center'>
-                    <img src="https://r-xx.bstatic.com/data/airlines_logo/6E.png" alt="plane" width={"40px"} height={"20px"}/>
-                    <p className='flex gap-2 flex-col'>
-                        <span className='text-sm font-bold text-left'>Raipur (RPR) to Mumbai (BOM)</span>
-                        <span className='text-sm text-left'>Sun 25 Feb · 21:00 - Sun 25 Feb · 23:05</span>
-                        <span className='text-sm text-left'>Direct · 2h 05m · Economy</span>
-                    </p>
-                    <div className='pl-20'>
-                        <button className='text-blue-400 px-3 py-2 rounded hover:bg-blue-100'>View flight details</button>
-                    </div>
-                </section> */}
+               
             </div>
             <div className='border rounded p-4'>
                 <p className='text-sm font-bold py-2 text-left'>Contact details</p>

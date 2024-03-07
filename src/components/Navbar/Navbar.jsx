@@ -4,6 +4,7 @@ import Stays from "./BottomNav/Stays/Stays/Stays";
 import FormData from "./FormData/FormData";
 import "./Navbar.css";
 import TopNav from "./TopNav/TopNav";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 // import Calender from "./Calender/Calender";
 
 function Navbar(){
@@ -15,6 +16,7 @@ function Navbar(){
            <div className="deidie09e">
             <Stays/>
             <Flight/>
+            {localStorage.getItem("Token") && <FavoriteButton/>}
            </div>
          
 

@@ -15,6 +15,7 @@ import Flying from "./FlightSection/FlyingSection/Flying";
 import FlightCheckOut from "./FlightSection/CheckOutDetails/FlightCheckOutDetails";
 import FlightPayment from "./FlightSection/FlightPayment/FlightPayment";
 import RegisterPage from "./RegisterPage/RegisterPage";
+import FavoriteData from "./FavoriteData/FavoriteData";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
         <Route path="/FlightCheckOut" element={<FlightCheckOut/>}/>
         <Route path="/FlightPayment" element={<FlightPayment/>}/>
         <Route path="/RegisterPage" element={<RegisterPage/>}/>
+
+        <Route path="/FavoriteData" element={<FavoriteData/>}/>
 
       </Routes>
   );
