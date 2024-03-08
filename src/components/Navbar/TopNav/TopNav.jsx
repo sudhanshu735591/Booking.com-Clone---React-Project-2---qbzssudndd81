@@ -14,7 +14,7 @@ function TopNav(){
     }
 
 
-    localStorage.setItem("username", "Sudhanshu")
+    localStorage.setItem("username", "Sudhanshu");
 
     function RegisterPage(){
         navigate("/RegisterPage");

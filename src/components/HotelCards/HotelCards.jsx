@@ -146,8 +146,6 @@ function HotelCards() {
         )
 
         localStorage.setItem("favArray", JSON.stringify(uniqueArr));
-        // navigate("/FavoriteList");
-
     }
 
 
@@ -269,7 +267,7 @@ function HotelCards() {
                                                 (
                                                     <>
                                                         <div className="edeidui3 cursor-pointer" onClick={()=>removeItem(val._id)}> 
-                                                            <span class="eedba9e88a"><span class="fcd9eec8fb bf9a32efa5" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="red" height={"17px"} ><path d="M12.541 21.325l-9.588-10a4.923 4.923 0 1 1 6.95-6.976l1.567 1.566a.75.75 0 0 0 1.06 0l1.566-1.566a4.923 4.923 0 0 1 6.963 6.962l-9.6 10.014h1.082zm-1.082 1.038a.75.75 0 0 0 1.082 0l9.59-10.003a6.418 6.418 0 0 0-.012-9.07 6.423 6.423 0 0 0-9.083-.001L11.47 4.854h1.06l-1.566-1.566a6.423 6.423 0 1 0-9.082 9.086l9.577 9.99z"></path></svg></span></span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="red" height={"23px"} viewBox="0 0 24 24"><path d="M23.3 5.076a6.582 6.582 0 0 0-10.446-1.71L12 4.147l-.827-.753a6.522 6.522 0 0 0-5.688-1.806A6.472 6.472 0 0 0 .7 5.075a6.4 6.4 0 0 0 1.21 7.469l9.373 9.656a1 1 0 0 0 1.434 0l9.36-9.638A6.414 6.414 0 0 0 23.3 5.076z"></path></svg>
                                                         </div>
 
                                                         <p onClick={()=>navigate("/FavoriteList")} className="text-blue-700 cursor-pointer font-semibold">Go To Favorite</p>
