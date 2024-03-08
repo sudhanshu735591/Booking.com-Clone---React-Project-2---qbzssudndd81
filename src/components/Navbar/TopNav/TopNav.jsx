@@ -13,6 +13,9 @@ function TopNav(){
         navigate("/sign_in_page");
     }
 
+
+    localStorage.setItem("username", "Sudhanshu")
+
     function RegisterPage(){
         navigate("/RegisterPage");
     }
