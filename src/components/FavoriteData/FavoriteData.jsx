@@ -41,7 +41,7 @@ function FavoriteData(){
                         <p>Created at: {val.created_at}</p>
                         <p>Start Date: {val.start_date}</p>
                         <p>End Date: {val.end_date}</p>
-                        <p>Hotel Name: {val.hotel.name}</p>
+                        <p>Hotel Name: {val.hotel?.name}</p>
                         <p><span>Status:</span> <span className="text-red-800" style={{textTransform:"uppercase"}}>{val.status}</span></p>
                     </div>
                 </div>

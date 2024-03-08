@@ -33,29 +33,34 @@ function FlightPayment() {
       navigate('/FlightCheckOut', { state: { startCity: startCity, endCity: endCity , ticketPrice: ticketPrice, taxes:taxes , flightFare:flightFare, flexible:flexible} })
     }
 
-    const handleNext = ()=>{
-      alert("hello");
-    }
-
-
     console.log("location", location);
 
 
-    // const flightHistory = async ()=>{
-    //   const data = await fetch("https://academics.newtonschool.co/api/v1/bookingportals/booking",{
-    //     headers:{
-    //       Authorization:`Bearer ${localStorage.getItem("Token")}`,
-    //       projectID:"0f6ipegajht2",
-    //     },
-    //     body:{
-    //       "bookingType" : "flight",
-    //       "bookingDetails":{
+    const flightHistory = async ()=>{
+      const data = await fetch("https://academics.newtonschool.co/api/v1/bookingportals/booking",{
+        method:"POST",
 
-    //       }
-    //     }
+        headers:{
+          Authorization:`Bearer ${localStorage.getItem("Token")}`,
+          projectID:"0f6ipegajht2",
+          "content-Type": "application/json",
+          
+        },
 
-    //   })
-    // }
+        body:JSON.stringify({
+            "bookingType" : "flight",
+            "bookingDetails" : {  
+                "flightId" : "651d4ffd8c0d859355224c33",
+                "startDate" : "2024-03-07T00:00:00.000Z", 
+                "endDate" : "2024-08-07T00:00:00.000Z"
+            }
+        })
+      })
+
+      const res = await data?.json();
+
+      console.log("Response is", res);
+    }
 
 
 
@@ -299,7 +304,7 @@ function FlightPayment() {
                   </span>
                   <span>Back</span>
               </button>
-              <Button text="Next" className='px-12 py-3 rounded bg-blue-600 hover:bg-blue-800 text-white' onClick={handleNext} />
+              <Button text="Next" className='px-12 py-3 rounded bg-blue-600 hover:bg-blue-800 text-white' onClick={flightHistory} />
               {/* <button className='px-12 py-3 rounded bg-blue-600 hover:bg-blue-800 text-white' onClick={handleNext}>Next</button> */}
           </div>
     </div>

@@ -36,11 +36,14 @@ function FlightDetail(props) {
 
   const apiData = async () => {
     let data = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/flight?search={"source":${JSON.stringify(location.state.source)},"destination":${JSON.stringify(location.state.destination)}}&day=Mon`, {
+    
       method: "GET",
       headers: {
         projectID: "0f6ipegajht2",
       }
     })
+
+    console.log("Data is", data);
 
     let res = await data?.json();
     console.log("--->", res);
@@ -81,6 +84,7 @@ function FlightDetail(props) {
     setOpen(true);
     console.log("id", id);
     setSingleFlightId(id);
+    localStorage.setItem("FlightId", id);
   };
 
   const singleFlightApi = async ()=>{
