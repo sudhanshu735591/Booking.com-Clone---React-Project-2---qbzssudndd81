@@ -44,15 +44,14 @@ function FlightPayment() {
           Authorization:`Bearer ${localStorage.getItem("Token")}`,
           projectID:"0f6ipegajht2",
           "content-Type": "application/json",
-          
         },
 
         body:JSON.stringify({
             "bookingType" : "flight",
             "bookingDetails" : {  
-                "flightId" : "651d4ffd8c0d859355224c33",
-                "startDate" : "2024-03-07T00:00:00.000Z", 
-                "endDate" : "2024-08-07T00:00:00.000Z"
+              "flightId" : localStorage.getItem("FlightId"),
+              "startDate" : "2024-03-07T00:00:00.000Z", 
+              "endDate" : "2024-08-07T00:00:00.000Z",
             }
         })
       })
@@ -228,8 +227,7 @@ function FlightPayment() {
                <div className='flex flex-row justify-between items-center'>
                     <div className='flex flex-col'>
                         <label>Expiry Date*</label>
-                        <input type='date' required  className='w-[35%] h-10 p-4  border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
-
+                        <input type='date' required  className='w-[100%] h-10 p-4  border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
                     </div>
                     <div className='flex flex-col'>
                         <label>CVC*</label>
