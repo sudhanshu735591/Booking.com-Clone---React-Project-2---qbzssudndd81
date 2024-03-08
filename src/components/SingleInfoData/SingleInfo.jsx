@@ -20,7 +20,7 @@ function SingleInfo() {
                 </div>
             </div>
 
-            <div className="ejdnejd">
+            <div className="ejdnejd xl:w-full xl:m-0">
                 <div className="ejded">
                     <SearchCard />
                 </div>

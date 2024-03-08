@@ -50,7 +50,7 @@ function UserDetails(props) {
                 <div className="flex flex-col ">
                     <label className="text-red-800 font-bold" style={{color:userDetails.firstName?"black":"darkred"}} for="First Name *">{userDetails.firstName?"First Name *":"Enter your first name *"}</label>
                     <span className="flex border-2 bg-red-700">
-                        <input required onChange={onChangeHandler} name= "firstName" type="text" className="border-[1px] p-1 w-[300px] focus:outline-none" />
+                        <input required onChange={onChangeHandler} name= "firstName" type="text" className="border-[1px] p-1 w-[300px] focus:outline-none md:w-[200px] xsm:w-[150px]" />
                         <div className="pl-2 pr-2 flex justify-center items-center text-white">{userDetails.firstName?"✓":"✘"}
                         </div>
                     </span>
@@ -59,7 +59,7 @@ function UserDetails(props) {
                 <div className="flex flex-col">
                     <label style={{color:userDetails.lastName?"black":"darkred"}} className="text-red-800 font-bold" for="First Name *">{userDetails.lastName?"Last Name *":"Enter your Last name *"}</label>
                     <span className="flex border-2 bg-red-700">
-                        <input required onChange={onChangeHandler} type="text" name = "lastName" className="border-[1px] p-1 w-[300px] focus:outline-none" />
+                        <input required onChange={onChangeHandler} type="text" name = "lastName" className="border-[1px] p-1 w-[300px] focus:outline-none  md:w-[200px] xsm:w-[150px]" />
                         <div className="pl-2 pr-2 flex justify-center items-center text-white">{userDetails.lastName?"✓":"✘"}
                         </div>
                     </span>
@@ -68,7 +68,7 @@ function UserDetails(props) {
                 <div className="flex flex-col">
                     <label style={{color:userDetails.email?"black":"darkred"}} className="text-red-800 font-bold" for="First Name *">{userDetails.email?"Email *":"Enter your Email *"}</label>
                     <span className="flex border-2 bg-red-700">
-                        <input required onChange={onChangeHandler} type="text" name="email" className="border-[1px] p-1 w-[300px] focus:outline-none" />
+                        <input required onChange={onChangeHandler} type="text" name="email" className="border-[1px] p-1 w-[300px] focus:outline-none  md:w-[200px] xsm:w-[150px]" />
                         <div className="pl-2 pr-2 flex justify-center items-center text-white">{userDetails.email?"✓":"✘"}
                         </div>
                     </span>
@@ -79,7 +79,7 @@ function UserDetails(props) {
             <div className="flex flex-col">
                 <label style={{color:userDetails.phone?"black":"darkred"}} className="text-red-800 font-bold" for="First Name *">{userDetails.phone?"Phone *":"Enter your Phone Number *"}</label>
                 <span className="flex border-2 bg-red-700 w-fit">
-                    <input required onChange={onChangeHandler} name="phone" type="number" className="border-[1px] p-1 w-[300px] focus:outline-none"/>
+                    <input required onChange={onChangeHandler} name="phone" type="number" className="border-[1px] p-1 w-[300px] focus:outline-none  md:w-[200px] xsm:w-[150px]"/>
                     <div className="pl-2 pr-2 flex justify-center items-center text-white">{userDetails.phone?"✓":"✘"}</div>
                 </span>
                 <p className="font-normal text-sm">Needed by the property to validate your booking</p>

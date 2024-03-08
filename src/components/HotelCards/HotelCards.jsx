@@ -255,7 +255,7 @@ function HotelCards() {
 
                             return (
                                 <div className="edidjioj">
-                                    <div className="edjeoidi">
+                                    <div className="edjeoidi md:flex md:flex-col">
                                         <div className="edoiejdio">
 
                                             <Link to={`/Singleinfo/${val._id}`}>

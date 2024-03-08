@@ -50,6 +50,7 @@ function PaymentDetails() {
 
         const res = await data.json();
         console.log("response is", res);
+        {res && alert("Your booking has been done !! Go to your Dashboard in history section")}
     }
 
     
@@ -60,7 +61,7 @@ function PaymentDetails() {
                 <TopNav />
             </div>
 
-            <div className="w-[80%] ml-40 flex gap-5">
+            <div className="w-[80%] ml-40 flex gap-5 lg:flex lg:flex-col lg:m-0 lg:w-full lg:p-3">
                 <div className="flex flex-col gap-3 flex ">
                     <CheckOutHotel />
                     <HotelDetails />
