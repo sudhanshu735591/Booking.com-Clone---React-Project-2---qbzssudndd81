@@ -35,7 +35,7 @@ function ResidenceDetails() {
     }, [])
 
     return (
-        <div>
+        <div >
             <div className="font-bold text-2xl">{data && data.location}</div>
             <p className="font-normal"> A-289, National Highway No-08, Near IGI Airport, Mahipalpur, Mahipalpur, 110037 New Delhi, India</p>
             <div className="flex gap-4">
@@ -51,7 +51,7 @@ function ResidenceDetails() {
 
                 <div className="mt-5">
                     <div>
-                        {data && <img className="h-80 edjen" src={data.images[2]}/>}
+                        {data && <img className="h-80 w-[515px] lg:w-[400px] md:w-[200px] sm:w-[100px]" src={data.images[2]}/>}
                     </div>
                 </div>
             </div>

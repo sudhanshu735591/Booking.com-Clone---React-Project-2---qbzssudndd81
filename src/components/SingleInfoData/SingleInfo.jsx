@@ -20,13 +20,13 @@ function SingleInfo() {
                 </div>
             </div>
 
-            <div className="ejdnejd xl:w-full xl:m-0">
-                <div className="ejded">
+            <div className="flex mt-5 gap-10 justify-center lg:flex-col">
+                <div className="w-[25%] lg:w-full lg:p-3">
                     <SearchCard />
                 </div>
 
-                <div>
-                    <ResidenceDetails />
+                <div className="flex justify-center">
+                    <ResidenceDetails /> 
                 </div>
             </div>
 
