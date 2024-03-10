@@ -131,6 +131,7 @@ function HotelCards() {
     useEffect(() => {
         apiData();
         // filterDataHandler();
+        window.scrollTo(0,0)
     }, [])
 
     function handleHeartClick(id, name, location,images, rating, avgCostPerNight, valRating){

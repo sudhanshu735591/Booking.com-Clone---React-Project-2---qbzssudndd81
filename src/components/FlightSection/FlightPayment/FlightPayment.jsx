@@ -221,7 +221,7 @@ function FlightPayment() {
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className='w-4 h-4'>
                 <path d="M116 112H12c-6.627 0-12-5.373-12-12V28c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v72c0 6.627-5.373 12-12 12zM12 24a4 4 0 0 0-4 4v72a4 4 0 0 0 4 4h104a4 4 0 0 0 4-4V28a4 4 0 0 0-4-4zm50.67 49.33a4 4 0 0 0-4-4h-36a4 4 0 0 0 0 8h36a4 4 0 0 0 4-4zm-8 16a4 4 0 0 0-4-4h-28a4 4 0 0 0 0 8h28a4 4 0 0 0 4-4zm49.52-32.92h-23a5.88 5.88 0 0 1-6.09-5.63V38.55a5.88 5.88 0 0 1 6.09-5.63h23a5.88 5.88 0 0 1 6.09 5.63v12.23a5.88 5.88 0 0 1-6.09 5.63zm-21.14-8h19.23v-7.49H83.05zm21.14-7.49z" />
                 </svg>
-                <input type='number' required value="Purnima Dewangan" className='w-[95%] h-10 p-4  border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
+                <input type='number' required value="Sudhanshu" className='w-[95%] h-10 p-4  border rounded border-gray-700 focus:ring-blue-500 focus:outline-none'/>
 
                </div>
                <div className='flex flex-row justify-between items-center'>
