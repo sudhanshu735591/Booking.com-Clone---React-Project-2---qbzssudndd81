@@ -33,7 +33,6 @@ function FlightPayment() {
       navigate('/FlightCheckOut', { state: { startCity: startCity, endCity: endCity , ticketPrice: ticketPrice, taxes:taxes , flightFare:flightFare, flexible:flexible} })
     }
 
-    console.log("location", location);
 
 
     const flightHistory = async ()=>{
@@ -58,7 +57,6 @@ function FlightPayment() {
 
       const res = await data?.json();
 
-      console.log("Response is", res);
     }
 
 

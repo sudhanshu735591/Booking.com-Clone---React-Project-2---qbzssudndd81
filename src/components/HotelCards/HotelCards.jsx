@@ -21,7 +21,6 @@ function HotelCards() {
 
     const [checkBoxCheked, setCheckBoxCheked] = useState(CheckBox);
 
-    const [checkBoxValue, setCheckBoxValue] = useState([]);
 
     const [addToFavorite, setAddToFavorite] = useState([]);
 
@@ -360,10 +359,6 @@ function HotelCards() {
 }
 
 export default HotelCards;
-
-
-
-
 
 
 
